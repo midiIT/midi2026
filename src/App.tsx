@@ -23,7 +23,7 @@ function App() {
         <CountdownComponent />
 
         <p className="text-lg mt-8">
-          Jeigu turite klausimų arba norite tapti projekto remėjais parašykite
+          Jeigu turite klausimų arba norite tapti projekto rėmėjais parašykite
           mums el. paštu:
           <a
             href="mailto:vadovas@midi.lt"
