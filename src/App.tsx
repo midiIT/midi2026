@@ -8,8 +8,9 @@ function App() {
         <h1 className="text-5xl md:text-7xl font-bold mb-4 mt-2">MIDI 2026</h1>
 
         <p className="text-xl md:text-2xl max-w-4xl mx-auto mb-8">
-          Puslapis dar kuriamas. Sekite naujienas apie mus mūsų socialiniuose
-          tinkluose!
+          Puslapis dar kuriamas...
+          <br />
+          Sekite naujienas mūsų socialiniuose tinkluose!
         </p>
 
         <div className="my-12">
