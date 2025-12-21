@@ -1,66 +1,68 @@
-import stoneTile from '../assets/stoneTile.jpg';
+import Wall from './Wall';
 
 interface RoomProps {
   children: React.ReactNode;
-  tilesX?: number;
-  tilesY?: number;
-  tileSize?: number;
+  widthTiles: number;
+  heightTiles: number;
+  tileSize: number;
+  isExteriorTop?: boolean;
+  isExteriorBottom?: boolean;
+  isExteriorLeft?: boolean;
+  isExteriorRight?: boolean;
+  background?: string;
   className?: string;
-  mergeTop?: boolean;
-  mergeLeft?: boolean;
 }
 
-function Room({ children, tilesX = 10, tilesY = 4, tileSize = 24, className = '', mergeTop = false, mergeLeft = false }: RoomProps) {
+export default function Room({
+  children,
+  widthTiles,
+  heightTiles,
+  tileSize,
+  isExteriorTop = true,
+  isExteriorBottom = true,
+  isExteriorLeft = true,
+  isExteriorRight = true,
+  background,
+  className,
+}: RoomProps) {
+  const width = widthTiles * tileSize;
+  const height = heightTiles * tileSize;
+
   return (
-    <div 
-      className={`relative ${className}`} 
-      style={{ 
-        padding: tileSize,
-        marginTop: mergeTop ? -tileSize : 0,
-        marginLeft: mergeLeft ? -tileSize : 0,
-        width: (tilesX + 2) * tileSize,
-      }}
-    >
-      {/* Top wall */}
-      <div className="absolute top-0 left-0 right-0 flex">
-        {[...Array(tilesX + 2)].map((_, i) => (
-          <img key={`top-${i}`} src={stoneTile} className="object-cover" style={{ width: tileSize, height: tileSize }} />
-        ))}
-      </div>
+    <div className="relative" style={{ width, height }}>
+      <Wall
+        tileSize={tileSize}
+        widthTiles={widthTiles}
+        heightTiles={heightTiles}
+        isExteriorTop={isExteriorTop}
+        isExteriorBottom={isExteriorBottom}
+        isExteriorLeft={isExteriorLeft}
+        isExteriorRight={isExteriorRight}
+      />
 
-      {/* Bottom wall */}
-      <div className="absolute bottom-0 left-0 right-0 flex">
-        {[...Array(tilesX + 2)].map((_, i) => (
-          <img key={`bottom-${i}`} src={stoneTile} className="object-cover" style={{ width: tileSize, height: tileSize }} />
-        ))}
-      </div>
-
-      {/* Left wall */}
-      <div 
-        className="absolute left-0 flex flex-col"
-        style={{ top: tileSize, bottom: tileSize }}
-      >
-        {[...Array(tilesY)].map((_, i) => (
-          <img key={`left-${i}`} src={stoneTile} className="object-cover" style={{ width: tileSize, height: tileSize }} />
-        ))}
-      </div>
-
-      {/* Right wall */}
-      <div 
-        className="absolute right-0 flex flex-col"
-        style={{ top: tileSize, bottom: tileSize }}
-      >
-        {[...Array(tilesY)].map((_, i) => (
-          <img key={`right-${i}`} src={stoneTile} className="object-cover" style={{ width: tileSize, height: tileSize }} />
-        ))}
-      </div>
+      {/* Background */}
+      <div
+        className={className}
+        style={{
+          position: 'absolute',
+          top: tileSize,
+          left: tileSize,
+          right: tileSize,
+          bottom: tileSize,
+          background: background || 'transparent',
+          zIndex: 4,
+        }}
+      />
 
       {/* Content */}
-      <div 
-        className="relative z-10 bg-sky-800 flex items-center justify-center"
-        style={{ 
-          width: tilesX * tileSize, 
-          height: tilesY * tileSize,
+      <div
+        className="absolute flex items-center justify-center"
+        style={{
+          top: tileSize,
+          left: tileSize,
+          right: tileSize,
+          bottom: tileSize,
+          zIndex: 10,
         }}
       >
         {children}
@@ -68,5 +70,3 @@ function Room({ children, tilesX = 10, tilesY = 4, tileSize = 24, className = ''
     </div>
   );
 }
-
-export default Room;

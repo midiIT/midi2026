@@ -8,11 +8,11 @@ interface TileConfig {
   isMobile: boolean;
 }
 
-function useResponsiveTiles(): TileConfig {
+export default function useResponsiveTiles(): TileConfig {
   const [config, setConfig] = useState<TileConfig>({
-    tileSize: 48,
+    tileSize: 64,
     tilesX: 5,
-    tilesY: 12,
+    tilesY: 6,
     columns: 1,
     isMobile: true,
   });
@@ -23,45 +23,36 @@ function useResponsiveTiles(): TileConfig {
       const height = window.innerHeight;
       const isMobile = width < 768;
 
-      const padding = 32; // px-4 each side = 32 total
-      const roofSpace = 100; // Space at top for roof
-      const availableWidth = width - padding;
-      const availableHeight = height - roofSpace;
+      const tileSize = 64;
+      const headerSpace = 100;
 
       if (isMobile) {
-        // MOBILE: Single column, fit width exactly
-        const tileSize = 48;
-        const tilesX = Math.floor(availableWidth / tileSize) - 2; // -2 for walls
-        const tilesY = Math.floor(availableHeight / tileSize) - 2;
+        const sidePadding = 32;
+        const availableWidth = width - sidePadding;
+        const availableHeight = height - headerSpace;
 
         setConfig({
           tileSize,
-          tilesX: Math.max(tilesX, 4),
-          tilesY: Math.max(tilesY, 8),
+          tilesX: Math.floor(availableWidth / tileSize),
+          tilesY: Math.floor(availableHeight / tileSize),
           columns: 1,
           isMobile: true,
         });
       } else {
-        // PC: Multiple columns, fit total width exactly
-        const columns = width >= 1024 ? 3 : 2;
-        const tileSize = 48;
-        
-        // Total width = columns * (tilesX + 2) * tileSize - (columns - 1) * tileSize
-        // (subtracting merged walls between columns)
-        // Solving for tilesX:
-        // availableWidth = columns * (tilesX + 2) * tileSize - (columns - 1) * tileSize
-        // availableWidth = tileSize * (columns * tilesX + 2 * columns - columns + 1)
-        // availableWidth = tileSize * (columns * tilesX + columns + 1)
-        const tilesX = Math.floor((availableWidth / tileSize - columns - 1) / columns);
-        
-        // Calculate rows to reach bottom (2 rows of rooms)
+        const columns = width >= 1200 ? 3 : 2;
         const rows = 2;
-        const tilesY = Math.floor((availableHeight / tileSize - rows - 1) / rows);
+        const padding = tileSize * 2;
+
+        const sharedWallsX = columns - 1;
+        const sharedWallsY = rows - 1;
+        
+        const availableWidth = width - padding + (sharedWallsX * tileSize);
+        const availableHeight = height - headerSpace - padding + (sharedWallsY * tileSize);
 
         setConfig({
           tileSize,
-          tilesX: Math.max(tilesX, 6),
-          tilesY: Math.max(tilesY, 5),
+          tilesX: Math.max(Math.floor(availableWidth / (columns * tileSize)), 4),
+          tilesY: Math.max(Math.floor(availableHeight / (rows * tileSize)), 4),
           columns,
           isMobile: false,
         });
@@ -75,5 +66,3 @@ function useResponsiveTiles(): TileConfig {
 
   return config;
 }
-
-export default useResponsiveTiles;
