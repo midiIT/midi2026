@@ -1,4 +1,5 @@
 import useInView from '../hooks/useInView';
+import Cat from './Cat';
 import Curtains from './Curtains';
 import Wall from './Wall';
 
@@ -52,6 +53,7 @@ export default function Room({
           left: tileSize,
           right: tileSize,
           bottom: tileSize,
+          pointerEvents: 'none',
           background: background || 'transparent',
           zIndex: 4,
         }}
@@ -65,6 +67,7 @@ export default function Room({
           left: tileSize,
           right: tileSize,
           bottom: tileSize,
+          pointerEvents: 'none',
           zIndex: 10,
         }}
       >
@@ -73,7 +76,7 @@ export default function Room({
 
       {/* Room-enter animation*/}
       <Curtains className={className} inView={inView}/>
-
+      <Cat className={className} inView={inView}/>
     </div>
   );
 }

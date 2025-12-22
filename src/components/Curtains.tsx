@@ -18,6 +18,7 @@ export default function Curtains({
             left: tileSize,
             right: tileSize,
             bottom: tileSize,
+            pointerEvents: 'none',
             background: "#0000005e",
             zIndex: 999,
           }}
