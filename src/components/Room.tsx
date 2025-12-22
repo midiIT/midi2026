@@ -1,3 +1,5 @@
+import useInView from '../hooks/useInView';
+import Curtains from './Curtains';
 import Wall from './Wall';
 
 interface RoomProps {
@@ -27,9 +29,10 @@ export default function Room({
 }: RoomProps) {
   const width = widthTiles * tileSize;
   const height = heightTiles * tileSize;
+  const [ref, inView] = useInView();
 
   return (
-    <div className="relative" style={{ width, height }}>
+    <div ref={ref} className="relative group" style={{ width, height }}>
       <Wall
         tileSize={tileSize}
         widthTiles={widthTiles}
@@ -67,6 +70,10 @@ export default function Room({
       >
         {children}
       </div>
+
+      {/* Room-enter animation*/}
+      <Curtains className={className} inView={inView}/>
+
     </div>
   );
 }
