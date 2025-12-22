@@ -43,7 +43,7 @@ export default function Cat({ className, inView }: { className?: string; inView:
             src={catImg}
             onClick={() => setTalk(true)}
             alt="Cat"
-            className={`${appearAnimation} h-auto object-contain ${talk ? 'animate-talk' : ''}`}
+            className={`${appearAnimation} h-auto object-contain cursor-pointer ${talk ? 'animate-talk' : ''}`}
             style={{ width: `${tileSize / 16}rem`, zIndex: 1000 }}
             loading="lazy"
             />
