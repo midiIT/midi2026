@@ -23,14 +23,14 @@ export default function useResponsiveTiles(): TileConfig {
       const height = window.innerHeight;
       const isMobile = width < 768;
 
-      const tileSize = 64;
+      const tileSize = 32;
       const headerSpace = 100;
 
       if (isMobile) {
         const sidePadding = 32;
         const availableWidth = width - sidePadding;
         const availableHeight = height - headerSpace;
-
+        
         setConfig({
           tileSize,
           tilesX: Math.floor(availableWidth / tileSize),
