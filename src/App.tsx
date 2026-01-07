@@ -1,7 +1,7 @@
 import RoomGrid from './components/RoomGrid';
+import Sky from './components/Sky';
 
 function App() {
-
   const rooms = [
     { id: 1, content: <span>Kambarys 1</span> },
     { id: 2, content: <span>Kambarys 2</span> },
@@ -13,11 +13,11 @@ function App() {
 
   return (
     <div className="min-h-screen bg-sky-900 flex flex-col text-white">
-      <div className="p-4 text-center">
-        <h1 className="text-4xl md:text-6xl font-bold">MIDI 2026</h1>
-      </div>
+      <Sky />
       
-      <RoomGrid rooms={rooms} />
+      <div className="relative z-10 flex flex-col min-h-screen">
+        <RoomGrid rooms={rooms} />
+      </div>
     </div>
   );
 }
