@@ -1,12 +1,12 @@
-import base from '../assets/stoneTile-base.png';
-import top from '../assets/stoneTile-top.png';
-import bottom from '../assets/stoneTile-bottom.png';
-import left from '../assets/stoneTile-left.png';
-import right from '../assets/stoneTile-right.png';
-import topLeft from '../assets/stoneTile-top-left.png';
-import topRight from '../assets/stoneTile-top-right.png';
-import bottomLeft from '../assets/stoneTile-bottom-left.png';
-import bottomRight from '../assets/stoneTile-bottom-right.png';
+import base from '../assets/stoneTile/stoneTile-base.png';
+import top from '../assets/stoneTile/stoneTile-top.png';
+import bottom from '../assets/stoneTile/stoneTile-bottom.png';
+import left from '../assets/stoneTile/stoneTile-left.png';
+import right from '../assets/stoneTile/stoneTile-right.png';
+import topLeft from '../assets/stoneTile/stoneTile-top-left.png';
+import topRight from '../assets/stoneTile/stoneTile-top-right.png';
+import bottomLeft from '../assets/stoneTile/stoneTile-bottom-left.png';
+import bottomRight from '../assets/stoneTile/stoneTile-bottom-right.png';
 
 interface WallProps {
   tileSize: number;
