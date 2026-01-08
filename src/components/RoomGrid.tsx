@@ -1,4 +1,5 @@
 import Room from './Room';
+import Roof from './Roof';
 import useResponsiveTiles from '../hooks/useResponsiveTiles';
 
 interface RoomData {
@@ -23,7 +24,9 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
   const totalRows = rows.length;
 
   const horizontalPadding = isMobile ? tileSize * 0.25 : tileSize;
-  const topPadding = isMobile ? tileSize * 0.5 : tileSize;
+
+  const roomWidth = tilesX * tileSize;
+  const roofHeight = roomWidth / 2;
 
   return (
     <div
@@ -31,15 +34,21 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
       style={{ 
         paddingLeft: horizontalPadding,
         paddingRight: horizontalPadding,
-        paddingTop: topPadding,
-        paddingBottom: '10px', // Extra bottom padding for aesthetics
+        paddingBottom: '10px',
       }}
     >
+      <Roof 
+        roofWidth={roomWidth}
+        roofHeight={roofHeight}
+        columns={columns}
+        tileSize={tileSize}
+      />
+
       {rows.map((row, rowIndex) => (
         <div
           key={rowIndex}
           className={isMobile ? 'flex flex-col' : 'flex flex-row'}
-          style={{ marginBottom: rowIndex === totalRows - 1 ? 0 : -tileSize }}
+          style={{ marginTop: rowIndex === 0 ? 0 : -tileSize }}
         >
           {row.map((room, colIndex) => {
             const isFirstRow = rowIndex === 0;
@@ -53,13 +62,11 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
             let isExteriorRight: boolean;
 
             if (isMobile) {
-              // Mobile: vertical tower
               isExteriorTop = isFirstRow && isFirstCol;
               isExteriorBottom = isLastRow && isLastCol;
               isExteriorLeft = true;
               isExteriorRight = true;
             } else {
-              // Desktop: grid of rooms
               isExteriorTop = isFirstRow;
               isExteriorBottom = isLastRow;
               isExteriorLeft = isFirstCol;
@@ -70,7 +77,7 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
               <div
                 key={room.id}
                 style={{ 
-                  marginRight: (isMobile || isLastCol) ? 0 : -tileSize,
+                  marginLeft: (isMobile || isFirstCol) ? 0 : -tileSize,
                   zIndex: rowIndex * 10 + colIndex
                 }}
               >
