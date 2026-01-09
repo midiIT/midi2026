@@ -1,5 +1,4 @@
 import useInView from '../hooks/useInView';
-import Cat from './Cat';
 import Curtains from './Curtains';
 import Wall from './Wall';
 import { useState } from 'react';
@@ -139,21 +138,7 @@ export default function Room({
 
         <Curtains className={className} inView={inView}/>
         
-        {/* Cat with higher z-index to be above clickable overlay */}
-        <div 
-          onClick={(e) => e.stopPropagation()}
-          style={{ 
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            zIndex: 100,
-            pointerEvents: 'none',
-          }}
-        >
-          <Cat className={className} inView={inView}/>
-        </div>
+        
       </div>
     </div>
   );
