@@ -1,13 +1,14 @@
 import Room from './Room';
 import useResponsiveTiles from '../hooks/useResponsiveTiles';
 import type { RoomType } from '../types/room';
+import Roof from './Roof';
+
 
 interface RoomData {
   id: string | number;
   content: React.ReactNode;
   background?: string;
   className?: string;
-  // optional: allow passing full metadata; if not provided we create it
   room?: RoomType;
 }
 
@@ -26,7 +27,9 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
   const totalRows = rows.length;
 
   const horizontalPadding = isMobile ? tileSize * 0.25 : tileSize;
-  const topPadding = isMobile ? tileSize * 0.5 : tileSize;
+
+  const roomWidth = tilesX * tileSize;
+  const roofHeight = roomWidth / 2;
 
   return (
     <div
@@ -34,15 +37,21 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
       style={{
         paddingLeft: horizontalPadding,
         paddingRight: horizontalPadding,
-        paddingTop: topPadding,
         paddingBottom: '10px',
       }}
     >
+
+      <Roof 
+        roofWidth={roomWidth}
+        roofHeight={roofHeight}
+        columns={columns}
+        tileSize={tileSize}
+      />
       {rows.map((row, rowIndex) => (
         <div
           key={rowIndex}
           className={isMobile ? 'flex flex-col' : 'flex flex-row'}
-          style={{ marginBottom: rowIndex === totalRows - 1 ? 0 : -tileSize }}
+          style={{ marginTop: rowIndex === 0 ? 0 : -tileSize }}
         >
           {row.map((room, colIndex) => {
             const isFirstRow = rowIndex === 0;
@@ -56,27 +65,17 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
             let isExteriorRight: boolean;
 
             if (isMobile) {
-              // Mobile: vertical tower
               isExteriorTop = isFirstRow && isFirstCol;
               isExteriorBottom = isLastRow && isLastCol;
               isExteriorLeft = true;
               isExteriorRight = true;
             } else {
-              // Desktop: grid of rooms
               isExteriorTop = isFirstRow;
               isExteriorBottom = isLastRow;
               isExteriorLeft = isFirstCol;
               isExteriorRight = isLastCol;
             }
 
-            // added: metadata for navigation
-            const roomMeta: RoomType =
-              room.room ?? {
-                id: String(room.id),
-                name: `Room ${room.id}`,
-                description: '',
-                gridPosition: { row: rowIndex, col: colIndex },
-              };
 
             return (
               <div
