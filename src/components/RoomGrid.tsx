@@ -1,11 +1,14 @@
 import Room from './Room';
 import useResponsiveTiles from '../hooks/useResponsiveTiles';
+import type { RoomType } from '../types/room';
 
 interface RoomData {
   id: string | number;
   content: React.ReactNode;
   background?: string;
   className?: string;
+  // optional: allow passing full metadata; if not provided we create it
+  room?: RoomType;
 }
 
 interface RoomGridProps {
@@ -28,11 +31,11 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
   return (
     <div
       className="flex flex-col items-center mt-auto"
-      style={{ 
+      style={{
         paddingLeft: horizontalPadding,
         paddingRight: horizontalPadding,
         paddingTop: topPadding,
-        paddingBottom: '10px', // Extra bottom padding for aesthetics
+        paddingBottom: '10px',
       }}
     >
       {rows.map((row, rowIndex) => (
@@ -66,6 +69,15 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
               isExteriorRight = isLastCol;
             }
 
+            // added: metadata for navigation
+            const roomMeta: RoomType =
+              room.room ?? {
+                id: String(room.id),
+                name: `Room ${room.id}`,
+                description: '',
+                gridPosition: { row: rowIndex, col: colIndex },
+              };
+
             return (
               <div
                 key={room.id}
@@ -84,6 +96,14 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
                   isExteriorRight={isExteriorRight}
                   background={room.background}
                   className={room.className}
+                  room={
+                    room.room ?? {
+                      id: String(room.id),
+                      name: `Room ${room.id}`,
+                      description: '',
+                      gridPosition: { row: rowIndex, col: colIndex },
+                    }
+                  }
                 >
                   {room.content}
                 </Room>
