@@ -24,14 +24,14 @@ function App() {
   return (
     <BrowserRouter basename="/2026">
       <div className="min-h-screen bg-sky-900 flex flex-col text-white">
-        <div className="p-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold">MIDI 2026</h1>
-        </div>
-
+        <Sky />
+      
+      <div className="relative z-10 flex flex-col min-h-screen">
         <Routes>
           <Route path="/" element={<RoomGrid rooms={rooms} />} />
           <Route path="/room/:roomId" element={<RoomDetail />} />
         </Routes>
+      </div>
       </div>
     </BrowserRouter>
   );

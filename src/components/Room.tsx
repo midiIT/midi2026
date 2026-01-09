@@ -61,7 +61,7 @@ export default function Room({
     setIsZooming(true);
     
     // Wait for animation to complete before navigating
-    await new Promise(resolve => setTimeout(resolve, 800));
+    await new Promise(resolve => setTimeout(resolve, 400));
     navigate(`/room/${roomId}`);
   };
 
@@ -79,8 +79,8 @@ export default function Room({
           transform: isZooming 
             ? `translate(${clickPosition.x}px, ${clickPosition.y}px) scale(3)` 
             : 'translate(0, 0) scale(1)',
-          opacity: isZooming ? 0 : 1,
-          zIndex: isZooming ? 9999 : 'auto',
+          opacity: isZooming ? 0.5 : 1,
+          zIndex: isZooming ? 99999 : 'auto',
           pointerEvents: isZooming ? 'none' : 'auto',
         }}
       >
