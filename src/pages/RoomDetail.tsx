@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import {useState } from 'react';
 import { ROOMS } from '../types/room';
 import Room1 from './rooms/Room1';
 import Room2 from './rooms/Room2';
@@ -20,13 +20,11 @@ const roomComponents: Record<string, React.ComponentType> = {
 export default function RoomDetail() {
   const { roomId } = useParams();
   const navigate = useNavigate();
-  const [isEntering, setIsEntering] = useState(false);
+  const [isEntering] = useState(true);
+
 
   const room = ROOMS.find(r => r.id === roomId);
 
-  useEffect(() => {
-    setIsEntering(true);
-  }, []);
 
   if (!room) {
     return (

@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useResponsiveTiles from "../hooks/useResponsiveTiles";
 import catImg from "../assets/cat_placeholder.jpg";
 
@@ -6,10 +6,12 @@ export default function Cat({ className, inView }: { className?: string; inView:
     const { tileSize, isMobile } = useResponsiveTiles();
     const [talk, setTalk] = useState(false);
 
-    const randomXRem = useMemo(() => {
-        const maxOffsetRem = tileSize / 16;
-        return (Math.random() * 2 - 1) * maxOffsetRem;
-    }, [tileSize]);
+    const randomXRem = useRef<number | null>(null);
+
+    if (randomXRem.current === null) {
+    const maxOffsetRem = tileSize / 16;
+    randomXRem.current = (Math.random() * 2 - 1) * maxOffsetRem;
+    }
 
     useEffect(() => {
         if (!talk) return;
@@ -38,7 +40,7 @@ export default function Cat({ className, inView }: { className?: string; inView:
             justifyContent: 'center',
         }}
         >
-        <div style={{ transform: `translateX(${randomXRem}rem)`, marginBottom: `${Math.abs(randomXRem)}rem`, position: 'relative' }}>
+        <div style={{ transform: `translateX(${randomXRem.current}rem)`, marginBottom: `${Math.abs(randomXRem.current)}rem`, position: 'relative' }}>
             <img
             src={catImg}
             onClick={() => setTalk(true)}
