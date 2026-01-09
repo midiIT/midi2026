@@ -15,10 +15,6 @@ export default function Cat({ className, inView }: { className?: string; inView:
     useEffect(() => {
         if (!talk) return;
 
-        if (!inView) {
-            setTalk(false);
-            return;
-        }
 
         const timeout = setTimeout(() => setTalk(false), 3000);
         return () => clearTimeout(timeout);
@@ -42,7 +38,9 @@ export default function Cat({ className, inView }: { className?: string; inView:
         <div style={{ transform: `translateX(${randomXRem}rem)`, marginBottom: `${Math.abs(randomXRem)}rem`, position: 'relative' }}>
             <img
             src={catImg}
-            onClick={() => setTalk(true)}
+            onClick={() => {
+            if (inView) setTalk(true);
+            }}
             alt="Cat"
             className={`${appearAnimation} h-auto object-contain ${talk ? 'animate-talk' : ''}`}
             style={{ width: `${tileSize / 16}rem`, zIndex: 1000 }}
