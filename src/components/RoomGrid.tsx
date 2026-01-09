@@ -8,7 +8,7 @@ interface RoomData {
   content: React.ReactNode;
   background?: string;
   className?: string;
-  room?: any;
+  room?: { id: string; name?: string; description?: string; gridPosition?: { row: number; col: number } };
 }
 
 interface RoomGridProps {

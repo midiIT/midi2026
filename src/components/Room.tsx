@@ -15,7 +15,7 @@ interface RoomProps {
   isExteriorRight?: boolean;
   background?: string;
   className?: string;
-  room?: any;
+  room?: { id: string };
 }
 
 export default function Room({
