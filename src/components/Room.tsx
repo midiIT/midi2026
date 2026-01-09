@@ -3,7 +3,6 @@ import Curtains from './Curtains';
 import Wall from './Wall';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import type { RoomType } from '../types/room';
 
 interface RoomProps {
   children: React.ReactNode;
@@ -16,7 +15,7 @@ interface RoomProps {
   isExteriorRight?: boolean;
   background?: string;
   className?: string;
-  room?: RoomType;
+  room?: any;
 }
 
 export default function Room({

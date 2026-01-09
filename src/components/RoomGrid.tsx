@@ -1,6 +1,5 @@
 import Room from './Room';
 import useResponsiveTiles from '../hooks/useResponsiveTiles';
-import type { RoomType } from '../types/room';
 import Roof from './Roof';
 
 
@@ -9,7 +8,7 @@ interface RoomData {
   content: React.ReactNode;
   background?: string;
   className?: string;
-  room?: RoomType;
+  room?: any;
 }
 
 interface RoomGridProps {
