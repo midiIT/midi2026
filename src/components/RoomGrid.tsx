@@ -1,12 +1,14 @@
 import Room from './Room';
-import Roof from './Roof';
 import useResponsiveTiles from '../hooks/useResponsiveTiles';
+import Roof from './Roof';
+
 
 interface RoomData {
   id: string | number;
   content: React.ReactNode;
   background?: string;
   className?: string;
+  room?: { id: string; name?: string; description?: string; gridPosition?: { row: number; col: number } };
 }
 
 interface RoomGridProps {
@@ -31,19 +33,19 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
   return (
     <div
       className="flex flex-col items-center mt-auto"
-      style={{ 
+      style={{
         paddingLeft: horizontalPadding,
         paddingRight: horizontalPadding,
         paddingBottom: '10px',
       }}
     >
+
       <Roof 
         roofWidth={roomWidth}
         roofHeight={roofHeight}
         columns={columns}
         tileSize={tileSize}
       />
-
       {rows.map((row, rowIndex) => (
         <div
           key={rowIndex}
@@ -73,11 +75,12 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
               isExteriorRight = isLastCol;
             }
 
+
             return (
               <div
                 key={room.id}
                 style={{ 
-                  marginLeft: (isMobile || isFirstCol) ? 0 : -tileSize,
+                  marginRight: (isMobile || isLastCol) ? 0 : -tileSize,
                   zIndex: rowIndex * 10 + colIndex
                 }}
               >
@@ -91,6 +94,14 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
                   isExteriorRight={isExteriorRight}
                   background={room.background}
                   className={room.className}
+                  room={
+                    room.room ?? {
+                      id: String(room.id),
+                      name: `Room ${room.id}`,
+                      description: '',
+                      gridPosition: { row: rowIndex, col: colIndex },
+                    }
+                  }
                 >
                   {room.content}
                 </Room>

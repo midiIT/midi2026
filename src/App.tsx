@@ -3,6 +3,8 @@ import kingRoomDesktop from './assets/rooms/kingRoom1.png';
 import kingRoomMobile from './assets/rooms/kingRoom2.png';
 import useResponsiveTiles from './hooks/useResponsiveTiles';
 import Sky from './components/Sky';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import RoomDetail from './pages/RoomDetail';
 
 
 function App() {
@@ -20,13 +22,18 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-sky-900 flex flex-col text-white">
-      <Sky />
+    <BrowserRouter basename="/2026">
+      <div className="min-h-screen bg-sky-900 flex flex-col text-white">
+        <Sky />
       
       <div className="relative z-10 flex flex-col min-h-screen">
-        <RoomGrid rooms={rooms} />
+        <Routes>
+          <Route path="/" element={<RoomGrid rooms={rooms} />} />
+          <Route path="/room/:roomId" element={<RoomDetail />} />
+        </Routes>
       </div>
-    </div>
+      </div>
+    </BrowserRouter>
   );
 }
 

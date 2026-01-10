@@ -11,6 +11,17 @@ export default {
         xl: '1280px', // Extra Large (default)
         '2xl': '1536px', // 2X Extra Large (default)
       },
+      keyframes: {
+        talk: {
+          '0%, 100%': { transform: 'rotate(0deg)' },
+          '25%': { transform: 'rotate(3deg)' },
+          '50%': { transform: 'rotate(-3deg)' },
+          '75%': { transform: 'rotate(2deg)' },
+        },
+      },
+      animation: {
+        talk: 'talk 0.5s ease-in-out infinite',
+      },
     },
   },
   plugins: [],
