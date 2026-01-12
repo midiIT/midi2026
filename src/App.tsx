@@ -1,20 +1,20 @@
 import RoomGrid from './components/RoomGrid';
-import kingRoomDesktop from './assets/rooms/kingRoom1.png';
-import kingRoomMobile from './assets/rooms/kingRoom2.png';
 import useResponsiveTiles from './hooks/useResponsiveTiles';
 import Sky from './components/Sky';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RoomDetail from './pages/RoomDetail';
+import ContributorsPC from './assets/rooms/contributorsRoomPC.png';
+import ContributorsMobile from './assets/rooms/contributorsRoomMobile.png';
 
 
 function App() {
   
   const { isMobile } = useResponsiveTiles();
-  const kingRoomBg = isMobile ? kingRoomMobile : kingRoomDesktop;
+  const contributors = isMobile ? ContributorsMobile : ContributorsPC;
   
   const rooms = [
-    { id: 1, content: <img src={kingRoomBg} alt="Sosto kambarys" className="w-full h-full" />, background: kingRoomBg },
-    { id: 2, content: <span>Kambarys 2</span> },
+    { id: 1, content: <span>Kambarys 1</span> },
+    { id: 2, content: <img src={contributors} alt="Sosto kambarys" className="w-full h-full" />, background: contributors },
     { id: 3, content: <span>Kambarys 3</span> },
     { id: 4, content: <span>Kambarys 4</span> },
     { id: 5, content: <span>Kambarys 5</span> },
