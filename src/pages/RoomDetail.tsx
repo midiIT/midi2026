@@ -1,19 +1,19 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import {useState } from 'react';
-import Room1 from './rooms/Room1';
-import Room2 from './rooms/Room2';
-import Room3 from './rooms/Room3';
-import Room4 from './rooms/Room4';
-import Room5 from './rooms/Room5';
-import Room6 from './rooms/Room6';
+import { useState } from 'react';
+import Activities from './rooms/Activities';
+import Contributors from './rooms/Contributors';
+import Team from './rooms/Team';
+import SocialMediaMIDI from './rooms/SocialMediaMIDI';
+import CollaborationProposal from './rooms/CollaborationProposal';
+import RooSocialMediaRO from './rooms/SocialMediaRO';
 
 const roomComponents: Record<string, React.ComponentType> = {
-  '1': Room1,
-  '2': Room2,
-  '3': Room3,
-  '4': Room4,
-  '5': Room5,
-  '6': Room6,
+  '1': Activities,
+  '2': Contributors,
+  '3': Team,
+  '4': SocialMediaMIDI,
+  '5': RooSocialMediaRO,
+  '6': CollaborationProposal,
 };
 
 export default function RoomDetail() {
@@ -25,7 +25,7 @@ export default function RoomDetail() {
 
   return (
     <div
-      className={`transition-all duration-500 ${
+      className={`w-full h-screen transition-all duration-500 ${
         isEntering ? 'scale-100 opacity-100' : 'scale-0 opacity-0'
       }`}
     >
