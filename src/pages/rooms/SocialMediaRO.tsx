@@ -2,9 +2,9 @@ import useResponsiveTiles from "../../hooks/useResponsiveTiles";
 import RoomContent from "../RoomContent";
 import RoomPC from '../../assets/rooms/contributorsRoomPC.png'
 import RoomMobile from '../../assets/rooms/contributorsRoomMobile.png'
-import FacebookIcon from '../../assets/rooms/ro_socials/facebook.png'
-import InstagramIcon from '../../assets/rooms/ro_socials/instagram.png'
-import TikTokIcon from '../../assets/rooms/ro_socials/tiktok.png'
+import FacebookIcon from '../../assets/social_icons/facebook.png'
+import InstagramIcon from '../../assets/social_icons/instagram.png'
+import TikTokIcon from '../../assets/social_icons/tiktok.png'
 
 export default function SocialMediaRO() {
   
