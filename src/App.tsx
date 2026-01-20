@@ -17,7 +17,7 @@ function App() {
     { id: 2, content: <img src={contributors} alt="Sosto kambarys" className="w-full h-full" />, background: contributors },
     { id: 3, content: <span>Kambarys 3</span> },
     { id: 4, content: <span>Kambarys 4</span> },
-    { id: 5, content: <span>Kambarys 5</span> },
+    { id: 5, content: <img src={contributors} alt="Socialinės medijos RO" className="w-full h-full" />, background: contributors },
     { id: 6, content: <span>Kambarys 6</span> },
   ];
 
