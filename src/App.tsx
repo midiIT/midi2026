@@ -5,18 +5,21 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RoomDetail from './pages/RoomDetail';
 import ContributorsPC from './assets/rooms/contributorsRoomPC.png';
 import ContributorsMobile from './assets/rooms/contributorsRoomMobile.png';
+import MidiSocialsPC from './assets/rooms/midiSocialsRoomPC.png'
+import MidiSocialsMobile from './assets/rooms/midiSocialsRoomMobile.png'
 
 
 function App() {
   
   const { isMobile } = useResponsiveTiles();
   const contributors = isMobile ? ContributorsMobile : ContributorsPC;
-  
+  const midiSocials = isMobile ? MidiSocialsMobile : MidiSocialsPC;
+
   const rooms = [
     { id: 1, content: <span>Kambarys 1</span> },
     { id: 2, content: <img src={contributors} alt="Sosto kambarys" className="w-full h-full" />, background: contributors },
     { id: 3, content: <span>Kambarys 3</span> },
-    { id: 4, content: <img src={contributors} alt="Socialinės medijos MIDI" className="w-full h-full" />, background: contributors },
+    { id: 4, content: <img src={midiSocials} alt="Socialinės medijos MIDI" className="w-full h-full" />, background: midiSocials },
     { id: 5, content: <span>Kambarys 5</span> },
     { id: 6, content: <span>Kambarys 6</span> },
   ];
