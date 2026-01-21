@@ -47,10 +47,10 @@ export default function RoomContent({
           <div
             className="absolute overflow-y-auto overflow-x-hidden scrollbar-hide"
             style={{
-              top: '20%',
+              top: '15%',
               bottom: '20%',
-              left: '22%',
-              right: '22%',
+              left: '15%',
+              right: '15%',
             }}
           >
             {children}
