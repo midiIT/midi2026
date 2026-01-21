@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import RoomContent from '../RoomContent';
 import useResponsiveTiles from '../../hooks/useResponsiveTiles';
-import RoomPC from '../../assets/rooms/contributorsRoomPC.png';
-import RoomMobile from '../../assets/rooms/contributorsRoomMobile.png';
+import RoomPC from '../../assets/rooms/activitiesRoomPC.png';
+import RoomMobile from '../../assets/rooms/activitiesRoomMobile.png';
 
 const events = [
     {
