@@ -33,7 +33,8 @@ export default function Room({
 }: RoomProps) {
   const width = widthTiles * tileSize;
   const height = heightTiles * tileSize;
-  const [ref, inView] = useInView();
+  const [refView, inView] = useInView();
+  const [isHovered, setIsHovered] = useState(false);
 
   const navigate = useNavigate();
   const [isZooming, setIsZooming] = useState(false);
@@ -65,9 +66,11 @@ export default function Room({
 
   return (
     <div 
-      ref={ref} 
+      ref={refView} 
       className="relative group" 
       style={{ width, height }}
+      onPointerEnter={() => setIsHovered(true)}
+      onPointerLeave={() => setIsHovered(false)}
     >
       {/* Zoom animation wrapper - wraps entire room */}
       <div
@@ -103,7 +106,7 @@ export default function Room({
             bottom: tileSize,
             pointerEvents: 'none',
             background: background || 'transparent',
-            zIndex: 4,
+            zIndex: 0,
           }}
         />
 
@@ -135,8 +138,7 @@ export default function Room({
           }}
         />
 
-        <Curtains className={className} inView={inView}/>
-        
+        <Curtains className={className} inView={inView} isHovered={isHovered}/>
         
       </div>
     </div>
