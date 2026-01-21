@@ -2,13 +2,13 @@ import useResponsiveTiles from "../hooks/useResponsiveTiles";
 import curtainsOpenAndClose from "../assets/curtains_open_and_close.gif";
 import curtainsOpen from "../assets/curtains.png";
 import { useCallback, useEffect, useState } from "react";
-
+import windowImage from "../assets/window.png";
 export default function Curtains({
   className,
   inView,
   isHovered,
 }: { className?: string, inView: boolean, isHovered: boolean }) {
-  const { tileSize, isMobile } = useResponsiveTiles();
+  const { tileSize, tilesY, isMobile } = useResponsiveTiles();
 
   const [hoverKey, setHoverKey] = useState<number | null>(null);
   const [enableGif, setEnableGif] = useState<boolean>(false);
@@ -48,8 +48,7 @@ export default function Curtains({
   }, [enableGif, gifSrc]);
 
   return (
-      <> 
-        {/* Curtains */}
+      <div className="relative x-full h-full"> 
         <div  
           className={`${className ?? ''} ${ (isMobile && inView) ? 'opacity-0' : 'opacity-100'} group-hover:opacity-0 group-focus:opacity-0 transition-opacity duration-500 delay-[1300ms]`}
           style={{
@@ -63,17 +62,38 @@ export default function Curtains({
             zIndex: 999,
           }}
         />
-        <img
-          src={gifOrImage}
-          onMouseEnter={replay}
-          className="cursor-pointer"
+        <div
           style={{
             position: 'absolute',
-            pointerEvents: 'none',
             top: tileSize,
-            zIndex: 1000,
+            left: tileSize,
+            right: tileSize,
+            bottom: tileSize,
+            transform: `translateY(${tileSize}}px)`,
           }}
-        />
-      </>
+          className="flex items-center justify-center"
+        >          
+          <img 
+            src={windowImage}   
+            className="w-[16rem]"        
+            style={{
+              pointerEvents: 'none',
+              position: 'absolute',
+              zIndex: 1001,
+            }}
+          />
+          <img
+            src={gifOrImage}
+            onMouseEnter={replay}
+            className="cursor-pointer w-[15rem]"
+            style={{
+              position: 'absolute',
+              pointerEvents: 'none',
+              transform: `translateY(${tileSize*0.4}px)`,
+              zIndex: 1000,
+            }}
+          />
+        </div>
+      </div>
   );
 }
