@@ -3,12 +3,13 @@ import curtainsOpenAndClose from "../assets/curtains_open_and_close.gif";
 import curtainsOpen from "../assets/curtains.png";
 import { useCallback, useEffect, useState } from "react";
 import windowImage from "../assets/window.png";
+import Cat from "./Cat";
 export default function Curtains({
   className,
   inView,
   isHovered,
 }: { className?: string, inView: boolean, isHovered: boolean }) {
-  const { tileSize, tilesY, isMobile } = useResponsiveTiles();
+  const { tileSize, isMobile } = useResponsiveTiles();
 
   const [hoverKey, setHoverKey] = useState<number | null>(null);
   const [enableGif, setEnableGif] = useState<boolean>(false);
@@ -25,26 +26,18 @@ export default function Curtains({
   }, [inView]);
 
   useEffect(() => {
-    setHoverKey(Date.now());
-    setEnableGif(isHovered)
+      setHoverKey(Date.now());
+      setEnableGif(isHovered)
   }, [isHovered])
-  
+    
   useEffect(() => {
-    let id: number | undefined;
+    const imageDelay = enableGif ? 200 : 1000;
+    
+    const timer = setTimeout(() => {
+      setGifOrImage(enableGif ? gifSrc : curtainsOpen);
+    }, imageDelay);
 
-    if (enableGif) {
-      id = window.setTimeout(() => {
-        setGifOrImage(gifSrc);
-      }, 200); 
-    } else {
-      id = window.setTimeout(() => {
-        setGifOrImage(curtainsOpen);
-      }, 1000); 
-    }
-
-    return () => {
-      if (id !== undefined) window.clearTimeout(id);
-    };
+    return () => clearTimeout(timer);
   }, [enableGif, gifSrc]);
 
   return (
@@ -90,7 +83,7 @@ export default function Curtains({
           <img
             src={gifOrImage}
             onMouseEnter={replay}
-            className="cursor-pointer w-[95%] h-[80%]"
+            className="cursor-pointer w-[95%] h-[86%]"
             style={{
               position: 'absolute',
               pointerEvents: 'none',
@@ -98,6 +91,9 @@ export default function Curtains({
               zIndex: 1000,
             }}
           />
+          
+          <Cat className={className} inView={inView}/> 
+
         </div>
       </div>
   );

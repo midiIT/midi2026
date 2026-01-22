@@ -1,15 +1,10 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import useResponsiveTiles from "../hooks/useResponsiveTiles";
 import catImg from "../assets/cat_placeholder.jpg";
 
 export default function Cat({ className, inView }: { className?: string; inView: boolean }) {
     const { tileSize, isMobile } = useResponsiveTiles();
     const [talk, setTalk] = useState(false);
-
-    const randomXRem = useMemo(() => {
-        const maxOffsetRem = tileSize / 16;
-        return (Math.random() * 2 - 1) * maxOffsetRem;
-    }, [tileSize]);
 
     useEffect(() => {
         if (!talk) return;
@@ -23,8 +18,8 @@ export default function Cat({ className, inView }: { className?: string; inView:
         return () => clearTimeout(timeout);
     }, [talk, inView]);
 
-    const appearAnimation = `transition-opacity duration-300 
-        ${inView && isMobile ? 'opacity-100' : 'opacity-0'} 
+    const appearAnimation = `transition-opacity duration-900
+        ${inView && isMobile ? 'opacity-100 delay-[1200ms]' : 'opacity-0 delay-[1200ms]'} 
         group-hover:opacity-100 group-focus:opacity-100 
         pointer-events-auto`;
 
@@ -36,16 +31,17 @@ export default function Cat({ className, inView }: { className?: string; inView:
             display: 'flex',
             alignItems: 'flex-end',
             justifyContent: 'center',
+            pointerEvents: 'none',
+            zIndex:'999'
         }}
         >
-        <div style={{ transform: `translateX(${randomXRem}rem)`, marginBottom: `${Math.abs(randomXRem)}rem`, position: 'relative' }}>
+        <div style={{ marginBottom: `1rem`, position: 'relative' }}>         
             <img
             src={catImg}
             onClick={() => setTalk(true)}
             alt="Cat"
             className={`${appearAnimation} h-auto object-contain cursor-pointer ${talk ? 'animate-talk' : ''}`}
-            style={{ width: `${tileSize / 16}rem`, zIndex: 1000 }}
-            loading="lazy"
+            style={{ width: `${tileSize / 6}rem`, zIndex: 1000 }}
             />
 
             {talk && (
@@ -62,7 +58,7 @@ export default function Cat({ className, inView }: { className?: string; inView:
                 whiteSpace: 'nowrap',
                 fontSize: '1rem',
                 color: 'black',
-                zIndex: 2000,
+                zIndex: 9999,
                 marginBottom: '0.5rem',
                 }}
             >

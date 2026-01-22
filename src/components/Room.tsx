@@ -119,7 +119,7 @@ export default function Room({
             right: tileSize,
             bottom: tileSize,
             pointerEvents: 'none',
-            zIndex: 10,
+            zIndex: 1,
           }}
         >
           {children}
@@ -139,7 +139,6 @@ export default function Room({
         />
 
         <Curtains className={className} inView={inView} isHovered={isHovered}/>
-        
       </div>
     </div>
   );
