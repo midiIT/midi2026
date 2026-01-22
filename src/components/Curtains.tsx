@@ -26,8 +26,10 @@ export default function Curtains({
   }, [inView]);
 
   useEffect(() => {
+    if (!isMobile) {
       setHoverKey(Date.now());
-      setEnableGif(isHovered)
+      setEnableGif(isHovered);
+    }
   }, [isHovered])
     
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function Curtains({
         }}
         >
         <div  
-          className={`${className ?? ''} ${ (isMobile && inView) ? 'opacity-0' : 'opacity-100'} group-hover:opacity-0 group-focus:opacity-0 transition-opacity duration-500 delay-[1300ms]`}
+          className={`${className ?? ''} ${ (isMobile && inView) ? 'opacity-0' : 'opacity-100'} group-hover:opacity-0 group-focus:opacity-0 transition-opacity duration-500 delay-[800ms]`}
           style={{
             position: 'absolute',
             top: tileSize,

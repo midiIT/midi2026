@@ -19,7 +19,7 @@ export default function Cat({ className, inView }: { className?: string; inView:
     }, [talk, inView]);
 
     const appearAnimation = `transition-opacity duration-900
-        ${inView && isMobile ? 'opacity-100 delay-[1200ms]' : 'opacity-0 delay-[1200ms]'} 
+        ${inView && isMobile ? 'opacity-100 delay-[800ms]' : 'opacity-0 delay-[800ms]'} 
         group-hover:opacity-100 group-focus:opacity-100 
         pointer-events-auto`;
 
