@@ -48,7 +48,12 @@ export default function Curtains({
   }, [enableGif, gifSrc]);
 
   return (
-      <div className="relative x-full h-full"> 
+        <div
+        className={`absolute left-0 top-0 right-0 bottom-0 ${className ?? ''}`}
+        style={{
+            padding: tileSize,
+        }}
+        >
         <div  
           className={`${className ?? ''} ${ (isMobile && inView) ? 'opacity-0' : 'opacity-100'} group-hover:opacity-0 group-focus:opacity-0 transition-opacity duration-500 delay-[1300ms]`}
           style={{
@@ -75,7 +80,7 @@ export default function Curtains({
         >          
           <img 
             src={windowImage}   
-            className="w-[16rem]"        
+            className="w-[100%] h-[100%]"        
             style={{
               pointerEvents: 'none',
               position: 'absolute',
@@ -85,7 +90,7 @@ export default function Curtains({
           <img
             src={gifOrImage}
             onMouseEnter={replay}
-            className="cursor-pointer w-[15rem]"
+            className="cursor-pointer w-[95%] h-[80%]"
             style={{
               position: 'absolute',
               pointerEvents: 'none',
