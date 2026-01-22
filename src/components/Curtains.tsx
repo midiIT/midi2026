@@ -23,14 +23,14 @@ export default function Curtains({
       setHoverKey(Date.now());
       setEnableGif(true);
     }
-  }, [inView]);
+  }, [inView, isMobile]);
 
   useEffect(() => {
     if (!isMobile) {
       setHoverKey(Date.now());
       setEnableGif(isHovered);
     }
-  }, [isHovered])
+  }, [isHovered, isMobile])
     
   useEffect(() => {
     const imageDelay = enableGif ? 200 : 1000;
