@@ -10,28 +10,22 @@ export default function Curtains({
   isHovered,
 }: { className?: string, inView: boolean, isHovered: boolean }) {
   const { tileSize, isMobile } = useResponsiveTiles();
+  const enableGif = isMobile ? inView : isHovered;
 
-  const [hoverKey, setHoverKey] = useState<number | null>(null);
-  const [enableGif, setEnableGif] = useState<boolean>(false);
+  const [hoverKey, setHoverKey] = useState<number>(0);
   const [gifOrImage, setGifOrImage] = useState<string>();
+  const [prevEnable, setPrevEnable] = useState(enableGif);
 
-  const gifSrc = hoverKey ? `${curtainsOpenAndClose}?_=${hoverKey}` : curtainsOpenAndClose;
   const replay = useCallback(() => setHoverKey(Date.now()), []);
+  const gifSrc = hoverKey ? `${curtainsOpenAndClose}?_=${hoverKey}` : curtainsOpenAndClose;
 
-  useEffect(() => {
-    if (isMobile) {
-      setHoverKey(Date.now());
-      setEnableGif(true);
+  if (enableGif !== prevEnable) {
+    setPrevEnable(enableGif);
+    if (enableGif) {
+      replay();
     }
-  }, [inView, isMobile]);
+  }
 
-  useEffect(() => {
-    if (!isMobile) {
-      setHoverKey(Date.now());
-      setEnableGif(isHovered);
-    }
-  }, [isHovered, isMobile])
-    
   useEffect(() => {
     const imageDelay = enableGif ? 200 : 1000;
     
@@ -43,12 +37,12 @@ export default function Curtains({
   }, [enableGif, gifSrc]);
 
   return (
-        <div
+      <div
         className={`absolute left-0 top-0 right-0 bottom-0 ${className ?? ''}`}
         style={{
             padding: tileSize,
         }}
-        >
+      >
         <div  
           className={`${className ?? ''} ${ (isMobile && inView) ? 'opacity-0' : 'opacity-100'} group-hover:opacity-0 group-focus:opacity-0 transition-opacity duration-500 delay-[800ms]`}
           style={{

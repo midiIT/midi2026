@@ -4,19 +4,16 @@ import catImg from "../assets/cat_placeholder.jpg";
 
 export default function Cat({ className, inView }: { className?: string; inView: boolean }) {
     const { tileSize, isMobile } = useResponsiveTiles();
+
     const [talk, setTalk] = useState(false);
 
     useEffect(() => {
         if (!talk) return;
-
-        if (!inView) {
-            setTalk(false);
-            return;
-        }
-
         const timeout = setTimeout(() => setTalk(false), 3000);
         return () => clearTimeout(timeout);
-    }, [talk, inView]);
+    }, [talk]);
+
+    const isCurrentlyTalking = talk && inView;
 
     const appearAnimation = `transition-opacity duration-900
         ${inView && isMobile ? 'opacity-100 delay-[800ms]' : 'opacity-0 delay-[800ms]'} 
@@ -44,7 +41,7 @@ export default function Cat({ className, inView }: { className?: string; inView:
             style={{ width: `${tileSize / 6}rem`, zIndex: 1000 }}
             />
 
-            {talk && (
+            {isCurrentlyTalking && (
             <div
                 className={appearAnimation}
                 style={{
