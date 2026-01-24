@@ -6,6 +6,11 @@ import RoomDetail from './pages/RoomDetail';
 
 import ContributorsPC from './assets/rooms/contributorsRoomPC.png';
 import ContributorsMobile from './assets/rooms/contributorsRoomMobile.png';
+import ActivitiesPC from './assets/rooms/activitiesRoomPC.png';
+import ActivitiesMobile from './assets/rooms/activitiesRoomMobile.png';
+import CollaborationPC from './assets/rooms/collaborationRoomPC.png';
+import CollaborationMobile from './assets/rooms/collaborationRoomMobile.png';
+
 import TeamPC from './assets/rooms/teamRoomPC.png';
 import TeamMobile from './assets/rooms/teamRoomMobile.png';
 
@@ -14,15 +19,17 @@ function App() {
   
   const { isMobile } = useResponsiveTiles();
   const contributors = isMobile ? ContributorsMobile : ContributorsPC;
+  const activities = isMobile ? ActivitiesMobile : ActivitiesPC;
+  const collaboration = isMobile ? CollaborationMobile : CollaborationPC;
   const team = isMobile ? TeamMobile : TeamPC;
   
   const rooms = [
-    { id: 1, content: <span>Kambarys 1</span> },
+    { id: 1, content: <img src={activities} alt="Pagrindinis kambarys" className="w-full h-full" />, background: activities },
     { id: 2, content: <img src={contributors} alt="Rėmėjai" className="w-full h-full" />, background: contributors },
     { id: 3, content: <img src={team} alt="Komanda" className="w-full h-full" />, background: team },
     { id: 4, content: <span>Kambarys 4</span> },
-    { id: 5, content: <span>Kambarys 5</span> },
-    { id: 6, content: <span>Kambarys 6</span> },
+    { id: 5, content: <span>Kambarys 5</span>},
+    { id: 6, content: <img src={collaboration} alt="Operos kambarys" className="w-full h-full" />, background: collaboration },
   ];
 
   return (
