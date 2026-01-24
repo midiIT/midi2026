@@ -58,17 +58,17 @@ export default function Events() {
                     </p>
                 </div>
 
-                <div className="flex gap-6 mt-6">
+                <div className="flex gap-6 mt-4">
                     <button
                         onClick={handleBack}
-                        className="px-8 py-3 bg-amber-800 text-amber-50 rounded font-bold text-lg hover:bg-amber-700 transition-colors shadow-lg border-2 border-amber-900"
+                        className="px-2 py-1 bg-amber-800 text-amber-50 rounded font-bold text-lg hover:bg-amber-700 transition-colors shadow-lg border-2 border-amber-900"
                         style={{ fontFamily: 'serif' }}
                     >
                         ← Back
                     </button>
                     <button
                         onClick={handleNext}
-                        className="px-8 py-3 bg-amber-800 text-amber-50 rounded font-bold text-lg hover:bg-amber-700 transition-colors shadow-lg border-2 border-amber-900"
+                        className="px-2 py-1 bg-amber-800 text-amber-50 rounded font-bold text-lg hover:bg-amber-700 transition-colors shadow-lg border-2 border-amber-900"
                         style={{ fontFamily: 'serif' }}
                     >
                         Next →
