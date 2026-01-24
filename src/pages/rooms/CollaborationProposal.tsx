@@ -37,9 +37,6 @@ export default function CollaborationProposal() {
                         Bendradarbiavimo pasiūlymai
                     </h2>
                     
-                    <p className="text-lg mb-8 text-gray-800 text-center leading-relaxed">
-                        Peržiūrėkite mūsų informacinius dokumentus pasirinkdami vieną iš žemiau pateiktų variantų.
-                    </p>
 
                     {/* PDF Selection Buttons */}
                     <div className="flex flex-col gap-6 items-center">
@@ -77,7 +74,7 @@ export default function CollaborationProposal() {
                         {/* Close Button */}
                         <button
                             onClick={closePopup}
-                            className="absolute top-4 right-4 z-10 bg-amber-800 text-amber-50 px-6 py-3 rounded-lg font-bold text-lg hover:bg-amber-700 transition-all shadow-lg border-2 border-amber-900"
+                            className="absolute top-1 right-4 z-10 bg-amber-800 text-amber-50 px-6 py-3 rounded-lg font-bold text-lg hover:bg-amber-700 transition-all shadow-lg border-2 border-amber-900"
                             style={{ fontFamily: 'serif' }}
                         >
                             Close
