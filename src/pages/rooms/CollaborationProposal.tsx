@@ -6,8 +6,8 @@ import RoomMobile from '../../assets/rooms/collaborationRoomMobile.png';
 
 // PDF file paths - replace these with your actual PDF file paths
 const pdfFiles = {
-    marketingas: '/path/to/marketingas.pdf',
-    barterinis: '/path/to/barterinis.pdf'
+    english: '/2026/MIDI_BP_2026_EN.pdf',
+    lietuviskai: '/2026/MIDI_BP_2026_LT.pdf'
 };
 
 export default function CollaborationProposal() {
@@ -44,25 +44,23 @@ export default function CollaborationProposal() {
                     {/* PDF Selection Buttons */}
                     <div className="flex flex-col gap-6 items-center">
                         <button
-                            onClick={() => openPdf('marketingas')}
+                            onClick={() => openPdf('english')}
                             className="w-full max-w-md px-8 py-6 bg-amber-800 text-amber-50 rounded-lg font-bold text-xl hover:bg-amber-700 transition-all shadow-lg border-4 border-amber-900 hover:scale-105"
                             style={{ fontFamily: 'serif' }}
                         >
-                            Marketingas
+                            English
                         </button>
                         
                         <button
-                            onClick={() => openPdf('barterinis')}
+                            onClick={() => openPdf('lietuviskai')}
                             className="w-full max-w-md px-8 py-6 bg-amber-800 text-amber-50 rounded-lg font-bold text-xl hover:bg-amber-700 transition-all shadow-lg border-4 border-amber-900 hover:scale-105"
                             style={{ fontFamily: 'serif' }}
                         >
-                            Barterinis
+                            Lietuviškai
                         </button>
                     </div>
 
-                    <p className="text-center text-sm text-gray-600 mt-8">
-                        Click on a document to view it in a new window
-                    </p>
+
                 </div>
             </RoomContent>
 
@@ -82,22 +80,22 @@ export default function CollaborationProposal() {
                             className="absolute top-4 right-4 z-10 bg-amber-800 text-amber-50 px-6 py-3 rounded-lg font-bold text-lg hover:bg-amber-700 transition-all shadow-lg border-2 border-amber-900"
                             style={{ fontFamily: 'serif' }}
                         >
-                            ✕ Close
+                            Close
                         </button>
 
                         {/* PDF Header */}
                         <div className="bg-amber-800 text-amber-50 px-6 py-4 border-b-4 border-amber-900">
                             <h3 className="text-2xl font-bold" style={{ fontFamily: 'serif' }}>
-                                {activePdf === 'marketingas' ? 'Marketingas' : 'Barterinis'}
+                                {activePdf === 'english' ? 'English' : 'Lietuviškai'}
                             </h3>
                         </div>
 
                         {/* PDF Viewer */}
                         <iframe
-                            src={activePdf === 'marketingas' ? pdfFiles.marketingas : pdfFiles.barterinis}
+                            src={activePdf === 'english' ? pdfFiles.english : pdfFiles.lietuviskai}
                             className="w-full h-full"
                             style={{ height: 'calc(100% - 80px)' }}
-                            title={activePdf === 'marketingas' ? 'Marketingas PDF' : 'Barterinis PDF'}
+                            title={activePdf === 'english' ? 'English PDF' : 'Lietuviškai PDF'}
                         />
                     </div>
                 </div>
