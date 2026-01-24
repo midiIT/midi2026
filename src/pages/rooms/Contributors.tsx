@@ -15,17 +15,17 @@ export default function Contributors() {
         >
             {/* This is temporary text for Room 1 to showcase the scroll element */}
             <h2 className="text-2xl font-bold mb-4">Welcome to the Throne Room</h2>
-            <p>This is Room 1 content that appears centered. This is Room 1 content that appears centered. This is Room 1 content that appears centered.</p>
+            <p>This is Room 1 content that appears centered.</p>
             <h2 className="text-2xl font-bold mb-4">Welcome to the Throne Room</h2>
-            <p>This is Room 1 content that appears centered. This is Room 1 content that appears centered. This is Room 1 content that appears centered.</p>
+            <p>This is Room 1 content that appears centered.</p>
             <h2 className="text-2xl font-bold mb-4">Welcome to the Throne Room</h2>
-            <p>This is Room 1 content that appears centered. This is Room 1 content that appears centered. This is Room 1 content that appears centered.</p>
+            <p>This is Room 1 content that appears centered.</p>
             <h2 className="text-2xl font-bold mb-4">Welcome to the Throne Room</h2>
-            <p>This is Room 1 content that appears centered. This is Room 1 content that appears centered. This is Room 1 content that appears centered.</p>
+            <p>This is Room 1 content that appears centered.</p>
             <h2 className="text-2xl font-bold mb-4">Welcome to the Throne Room</h2>
-            <p>This is Room 1 content that appears centered. This is Room 1 content that appears centered. This is Room 1 content that appears centered.</p>
+            <p>This is Room 1 content that appears centered.</p>
             <h2 className="text-2xl font-bold mb-4">Welcome to the Throne Room</h2>
-            <p>This is Room 1 content that appears centered. This is Room 1 content that appears centered. This is Room 1 content that appears centered.</p>
+            <p>This is Room 1 content that appears centered.</p>
         </RoomContent>
     );
 }
