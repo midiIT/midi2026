@@ -19,6 +19,9 @@ export default {
           '75%': { transform: 'rotate(2deg)' },
         },
       },
+      fontFamily: {
+        medieval: ['Allura', 'serif'],
+      },
       animation: {
         talk: 'talk 0.5s ease-in-out infinite',
       },
