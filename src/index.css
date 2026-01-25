@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: 'Allura';
-  src: url('./assets/fonts/Allura-oyw4.ttf') format('truetype');
+  font-family: 'KingthingsFoundation';
+  src: url('./assets/fonts/KingthingsFoundation-gBl5.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -19,8 +19,7 @@ body {
   padding: 0;
   min-width: 320px;
   min-height: 100vh;
-  font-family: 'Allura', serif;
-  font-size: 18px;
+  font-family: 'KingthingsFoundation', serif;
 }
 
 #root {
