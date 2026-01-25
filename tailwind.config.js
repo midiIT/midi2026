@@ -3,6 +3,15 @@ export default {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        diamond: '#02f2fa',
+        gold: '#FFD700',
+        silver: '#C0C0C0',
+        bronze: '#CD7F32',
+        standard: '#3B82F6',
+        purple: '#c39bd3',
+        partner: '#10B981',
+      },
       screens: {
         es: '360px', // Extra Small (custom)
         sm: '640px', // Small (default)
