@@ -1,68 +1,136 @@
-import { useEffect, useState } from "react";
-import useResponsiveTiles from "../hooks/useResponsiveTiles";
-import catImg from "../assets/cat_placeholder.jpg";
+import { useState, useEffect } from "react";
+import cat1 from "../assets/cat1.png";
+import cat2 from "../assets/cat2.png";
+import cat3 from "../assets/cat3.png";
+import type { DeviceType } from "../hooks/useResponsiveLayout";
 
-export default function Cat({ className, inView }: { className?: string; inView: boolean }) {
-    const { tileSize, isMobile } = useResponsiveTiles();
+interface CatProps {
+  deviceType: DeviceType;
+  isVisible: boolean;
+  contentInset: { top: string; bottom: string; left: string; right: string };
+  message?: string;
+  autoTalk?: boolean;
+}
 
-    const [talk, setTalk] = useState(false);
+export default function Cat({ 
+  deviceType, 
+  isVisible, 
+  contentInset, 
+  message = "Miau!", 
+  autoTalk = false 
+}: CatProps) {
+  const [state, setState] = useState<'sleeping' | 'awake' | 'talking'>('sleeping');
 
-    useEffect(() => {
-        if (!talk) return;
-        const timeout = setTimeout(() => setTalk(false), 3000);
-        return () => clearTimeout(timeout);
-    }, [talk]);
+  useEffect(() => {
+    if (!isVisible) {
+      setState('sleeping');
+    }
+  }, [isVisible]);
 
-    const isCurrentlyTalking = talk && inView;
+  useEffect(() => {
+    if (autoTalk && isVisible) {
+      const timer = setTimeout(() => {
+        setState('talking');
+      }, 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [autoTalk, isVisible]);
 
-    const appearAnimation = `transition-opacity duration-900
-        ${inView && isMobile ? 'opacity-100 delay-[800ms]' : 'opacity-0 delay-[800ms]'} 
-        group-hover:opacity-100 group-focus:opacity-100 
-        pointer-events-auto`;
+  const handleMouseEnter = () => {
+    if (state === 'sleeping') {
+      setState('awake');
+    }
+  };
 
-    return (
-        <div
-        className={`absolute left-0 top-0 right-0 bottom-0 ${className ?? ''}`}
-        style={{
-            padding: tileSize,
-            display: 'flex',
-            alignItems: 'flex-end',
-            justifyContent: 'center',
-            pointerEvents: 'none',
-            zIndex:'999'
-        }}
-        >
-        <div style={{ marginBottom: `1rem`, position: 'relative' }}>         
-            <img
-            src={catImg}
-            onClick={() => setTalk(true)}
-            alt="Cat"
-            className={`${appearAnimation} h-auto object-contain cursor-pointer ${talk ? 'animate-talk' : ''}`}
-            style={{ width: `${tileSize / 6}rem`, zIndex: 1000 }}
-            />
+  const handleMouseLeave = () => {
+    if (state !== 'talking') {
+      setState('sleeping');
+    }
+  };
 
-            {isCurrentlyTalking && (
+  const handleClick = () => {
+    setState('talking');
+    setTimeout(() => setState('sleeping'), 3000);
+  };
+
+  const getCatImage = () => {
+    switch (state) {
+      case 'sleeping': return cat1;
+      case 'awake': return cat2;
+      case 'talking': return cat3;
+    }
+  };
+
+  const catSize = deviceType === 'mobile' ? '6rem' : '4rem';
+  const catMarginBottom = deviceType === 'mobile' ? '16vh' : '0';
+
+  return (
+    <div
+      className="absolute"
+      style={{
+        top: contentInset.top,
+        bottom: contentInset.bottom,
+        left: contentInset.left,
+        right: contentInset.right,
+        display: 'flex',
+        alignItems: 'flex-end',
+        justifyContent: 'center',
+        pointerEvents: 'none',
+        zIndex: 2000,
+      }}
+    >
+      <div style={{ position: 'relative', marginBottom: catMarginBottom }}>
+        <img
+          src={getCatImage()}
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+          onClick={handleClick}
+          alt="Cat"
+          className={`h-auto object-contain cursor-pointer transition-opacity duration-500 ${
+            isVisible ? 'opacity-100 delay-[800ms]' : 'opacity-0'
+          }`}
+          style={{ 
+            width: catSize,
+            pointerEvents: isVisible ? 'auto' : 'none',
+          }}
+        />
+
+        {state === 'talking' && isVisible && (
+          <div
+            style={{
+              position: 'absolute',
+              bottom: '60%',
+              left: '100%',
+              marginLeft: '0.5rem',
+              backgroundColor: 'white',
+              padding: '0.5rem 0.75rem',
+              borderRadius: '0.5rem',
+              whiteSpace: 'normal',
+              minWidth: deviceType === 'mobile' ? '100px' : '120px',
+              maxWidth: deviceType === 'mobile' ? '150px' : '200px',
+              fontSize: deviceType === 'mobile' ? '0.75rem' : '0.875rem',
+              color: 'black',
+              zIndex: 9999,
+              boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+            }}
+          >
+            {message}
             <div
-                className={appearAnimation}
-                style={{
+              style={{
                 position: 'absolute',
-                bottom: '100%',
-                left: '50%',
-                transform: 'translateX(-50%)',
-                backgroundColor: 'white',
-                padding: '0.25rem 0.5rem',
-                borderRadius: '0.25rem',
-                whiteSpace: 'nowrap',
-                fontSize: '1rem',
-                color: 'black',
-                zIndex: 9999,
-                marginBottom: '0.5rem',
-                }}
-            >
-                miau
-            </div>
-            )}
-        </div>
-        </div>
-    );
+                left: '-6px',
+                top: '50%',
+                transform: 'translateY(-50%)',
+                width: 0,
+                height: 0,
+                borderTop: '6px solid transparent',
+                borderBottom: '6px solid transparent',
+                borderRight: '6px solid white',
+              }}
+            />
+          </div>
+        )}
+      </div>
+    </div>
+  );
 }

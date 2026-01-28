@@ -1,5 +1,5 @@
 import RoomContent from '../RoomContent';
-import useResponsiveTiles from '../../hooks/useResponsiveTiles';
+import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomPC from '../../assets/rooms/teamRoomPC.png';
 import RoomMobile from '../../assets/rooms/teamRoomMobile.png';
 import teamMembers from '../../data/team.json';
@@ -87,8 +87,8 @@ function TeamGrid() {
 }
 
 export default function Team() {
-  const { isMobile } = useResponsiveTiles();
-  const bck = isMobile ? RoomMobile : RoomPC;
+  const { deviceType } = useResponsiveLayout();
+  const bck = deviceType === 'mobile' ? RoomMobile : RoomPC;
 
   return (
     <RoomContent
