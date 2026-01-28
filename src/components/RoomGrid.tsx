@@ -1,14 +1,14 @@
+import { useState } from 'react';
 import Room from './Room';
-import useResponsiveTiles from '../hooks/useResponsiveTiles';
+import useResponsiveLayout from '../hooks/useResponsiveLayout';
 import Roof from './Roof';
-
 
 interface RoomData {
   id: string | number;
   content: React.ReactNode;
   background?: string;
   className?: string;
-  room?: { id: string; name?: string; description?: string; gridPosition?: { row: number; col: number } };
+  room?: { id: string };
 }
 
 interface RoomGridProps {
@@ -16,96 +16,79 @@ interface RoomGridProps {
 }
 
 export default function RoomGrid({ rooms }: RoomGridProps) {
-  const { tileSize, tilesX, tilesY, columns, isMobile } = useResponsiveTiles();
+  const { deviceType, columns, roomWidth, roomHeight, windowImage } =
+    useResponsiveLayout();
+
+  const [activeRoomId, setActiveRoomId] = useState<string | null>(null);
+
+  const handleRoomTap = (roomId: string): 'activate' | 'navigate' => {
+    if (deviceType !== 'tablet') {
+      return 'navigate';
+    }
+
+    if (activeRoomId !== roomId) {
+      setActiveRoomId(roomId);
+      return 'activate';
+    }
+
+    return 'navigate';
+  };
 
   const rows: RoomData[][] = [];
   for (let i = 0; i < rooms.length; i += columns) {
     rows.push(rooms.slice(i, i + columns));
   }
 
-  const totalRows = rows.length;
-
-  const horizontalPadding = isMobile ? tileSize * 0.25 : tileSize;
-
-  const roomWidth = tilesX * tileSize;
-  const roofHeight = roomWidth / 2;
+  const roofWidth = deviceType === 'mobile' ? roomWidth * 1.1 : roomWidth * 1.03;
+  const roofHeight = deviceType === 'mobile' ? roomWidth * 0.4 : roomWidth / 2;
 
   return (
-    <div
+    <div 
       className="flex flex-col items-center mt-auto"
       style={{
-        paddingLeft: horizontalPadding,
-        paddingRight: horizontalPadding,
-        paddingBottom: '10px',
+        width: deviceType === 'mobile' ? '100%' : 'auto',
+        overflow: 'hidden',
+        paddingBottom: deviceType === 'mobile' ? 0 : '1rem',
       }}
     >
+      {deviceType === 'mobile' && (
+        <div className="w-full py-4 text-center">
+          {/* Countdown will go here */}
+        </div>
+      )}
 
-      <Roof 
-        roofWidth={roomWidth}
+      <Roof
+        roofWidth={roofWidth}
         roofHeight={roofHeight}
         columns={columns}
-        tileSize={tileSize}
       />
+
       {rows.map((row, rowIndex) => (
         <div
           key={rowIndex}
-          className={isMobile ? 'flex flex-col' : 'flex flex-row'}
-          style={{ marginTop: rowIndex === 0 ? 0 : -tileSize }}
+          className={`flex ${deviceType === 'mobile' ? 'flex-col' : 'flex-row'} gap-0`}
+          style={{
+            width: deviceType === 'mobile' ? '100%' : 'auto',
+          }}
         >
-          {row.map((room, colIndex) => {
-            const isFirstRow = rowIndex === 0;
-            const isLastRow = rowIndex === totalRows - 1;
-            const isFirstCol = colIndex === 0;
-            const isLastCol = colIndex === row.length - 1;
-
-            let isExteriorTop: boolean;
-            let isExteriorBottom: boolean;
-            let isExteriorLeft: boolean;
-            let isExteriorRight: boolean;
-
-            if (isMobile) {
-              isExteriorTop = isFirstRow && isFirstCol;
-              isExteriorBottom = isLastRow && isLastCol;
-              isExteriorLeft = true;
-              isExteriorRight = true;
-            } else {
-              isExteriorTop = isFirstRow;
-              isExteriorBottom = isLastRow;
-              isExteriorLeft = isFirstCol;
-              isExteriorRight = isLastCol;
-            }
-
+          {row.map((room) => {
+            const roomId = room.room?.id ?? String(room.id);
 
             return (
-              <div
+              <Room
                 key={room.id}
-                style={{ 
-                  marginRight: (isMobile || isLastCol) ? 0 : -tileSize,
-                  zIndex: rowIndex * 10 + colIndex
-                }}
+                width={roomWidth}
+                height={roomHeight}
+                windowImage={windowImage}
+                deviceType={deviceType}
+                background={room.background}
+                className={room.className}
+                room={room.room ?? { id: roomId }}
+                isActive={activeRoomId === roomId}
+                onRoomTap={handleRoomTap}
               >
-                <Room
-                  widthTiles={tilesX}
-                  heightTiles={tilesY}
-                  tileSize={tileSize}
-                  isExteriorTop={isExteriorTop}
-                  isExteriorBottom={isExteriorBottom}
-                  isExteriorLeft={isExteriorLeft}
-                  isExteriorRight={isExteriorRight}
-                  background={room.background}
-                  className={room.className}
-                  room={
-                    room.room ?? {
-                      id: String(room.id),
-                      name: `Room ${room.id}`,
-                      description: '',
-                      gridPosition: { row: rowIndex, col: colIndex },
-                    }
-                  }
-                >
-                  {room.content}
-                </Room>
-              </div>
+                {room.content}
+              </Room>
             );
           })}
         </div>
