@@ -1,4 +1,4 @@
-import RoomContent from '../RoomContnet';
+import RoomContent from '../RoomContent'
 import useResponsiveTiles from '../../hooks/useResponsiveTiles';
 import RoomPC from '../../assets/rooms/contributorsRoomPC.png';
 import RoomMobile from '../../assets/rooms/contributorsRoomMobile.png';
