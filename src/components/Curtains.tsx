@@ -24,7 +24,7 @@ export default function Curtains({
 }: CurtainsProps) {
   const [gifKey, setGifKey] = useState(0);
 
-  const replay = useCallback(() => setGifKey(k => k + 1), []);
+  const replay = useCallback(() => setGifKey(Date.now()), []);
 
   useEffect(() => {
     if (isRoomOpen) {
@@ -52,7 +52,6 @@ export default function Curtains({
     pointerEvents: 'none',
     zIndex: 2000,
     objectFit: 'fill',
-    transition: 'opacity 0.8s ease-in-out',
     ...curtainStyle,
   };
 
