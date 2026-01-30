@@ -1,6 +1,6 @@
 import curtainsOpenAndClose from "../assets/curtains_open_and_close.gif";
 import curtainsOpen from "../assets/curtains.png";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import type { DeviceType } from "../hooks/useResponsiveLayout";
 
 interface ContentInset {
@@ -24,11 +24,14 @@ export default function Curtains({
 }: CurtainsProps) {
   const [gifKey, setGifKey] = useState(0);
 
+  const replay = useCallback(() => setGifKey(k => k + 1), []);
+
   useEffect(() => {
     if (isRoomOpen) {
-      setGifKey(Date.now());
+      const timer = setTimeout(replay, 0);
+      return () => clearTimeout(timer);
     }
-  }, [isRoomOpen]);
+  }, [isRoomOpen, replay]);
 
   const gifSrc = `${curtainsOpenAndClose}?_=${gifKey}`;
 

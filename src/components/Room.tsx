@@ -61,9 +61,6 @@ export default function Room({
     }
   })();
 
-  const shouldAutoTalk =
-    deviceType === 'mobile' || (deviceType === 'tablet' && isActive);
-
   const handleRoomClick = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
     e.preventDefault();
@@ -88,6 +85,19 @@ export default function Room({
 
     setIsZooming(true);
 
+    await new Promise(resolve => setTimeout(resolve, 400));
+    navigate(`/room/${roomId}`);
+  };
+
+  const navigateToRoom = async () => {
+    const roomId = room?.id ?? 'unknown';
+    
+    const action = onRoomTap?.(roomId) ?? 'navigate';
+    if (action === 'activate') {
+      return;
+    }
+
+    setIsZooming(true);
     await new Promise(resolve => setTimeout(resolve, 400));
     navigate(`/room/${roomId}`);
   };
@@ -163,7 +173,7 @@ export default function Room({
           isVisible={isRoomOpen}
           contentInset={contentInset}
           message={roomMessages[room?.id ?? ''] || 'Miau!'}
-          autoTalk={shouldAutoTalk}
+          onRoomClick={navigateToRoom}
         />
       </div>
     </div>

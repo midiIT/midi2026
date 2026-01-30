@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import cat1 from "../assets/cat1.png";
-import cat2 from "../assets/cat2.png";
 import cat3 from "../assets/cat3.png";
 import type { DeviceType } from "../hooks/useResponsiveLayout";
 
@@ -9,7 +8,7 @@ interface CatProps {
   isVisible: boolean;
   contentInset: { top: string; bottom: string; left: string; right: string };
   message?: string;
-  autoTalk?: boolean;
+  onRoomClick?: () => void;
 }
 
 export default function Cat({ 
@@ -17,48 +16,43 @@ export default function Cat({
   isVisible, 
   contentInset, 
   message = "Miau!", 
-  autoTalk = false 
+  onRoomClick,
 }: CatProps) {
-  const [state, setState] = useState<'sleeping' | 'awake' | 'talking'>('sleeping');
+  const [state, setState] = useState<'sleeping' | 'talking'>('sleeping');
+  const [showBubble, setShowBubble] = useState(false);
 
   useEffect(() => {
-    if (!isVisible) {
-      setState('sleeping');
+  if (!isVisible) {
+      const timer = setTimeout(() => setState('sleeping'), 0);
+      return () => clearTimeout(timer);
     }
   }, [isVisible]);
 
   useEffect(() => {
-    if (autoTalk && isVisible) {
+    if (isVisible) {
       const timer = setTimeout(() => {
         setState('talking');
-      }, 1200);
+      }, 300);
       return () => clearTimeout(timer);
     }
-  }, [autoTalk, isVisible]);
+  }, [isVisible]);
 
-  const handleMouseEnter = () => {
-    if (state === 'sleeping') {
-      setState('awake');
+  useEffect(() => {
+    if (state === 'talking' && isVisible) {
+      const timer = setTimeout(() => setShowBubble(true), 750);
+      return () => clearTimeout(timer);
+    } else {
+      const timer = setTimeout(() => setShowBubble(false), 0);
+      return () => clearTimeout(timer);
     }
-  };
-
-  const handleMouseLeave = () => {
-    if (state !== 'talking') {
-      setState('sleeping');
-    }
-  };
+  }, [state, isVisible]);
 
   const handleClick = () => {
-    setState('talking');
-    setTimeout(() => setState('sleeping'), 3000);
+    onRoomClick?.();
   };
 
   const getCatImage = () => {
-    switch (state) {
-      case 'sleeping': return cat1;
-      case 'awake': return cat2;
-      case 'talking': return cat3;
-    }
+    return state === 'talking' ? cat3 : cat1;
   };
 
   const catSize = deviceType === 'mobile' ? '6rem' : '4rem';
@@ -82,8 +76,6 @@ export default function Cat({
       <div style={{ position: 'relative', marginBottom: catMarginBottom }}>
         <img
           src={getCatImage()}
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
           onClick={handleClick}
           alt="Cat"
           className={`h-auto object-contain cursor-pointer transition-opacity duration-500 ${
@@ -95,7 +87,7 @@ export default function Cat({
           }}
         />
 
-        {state === 'talking' && isVisible && (
+        {showBubble && (
           <div
             style={{
               position: 'absolute',
@@ -112,6 +104,7 @@ export default function Cat({
               color: 'black',
               zIndex: 9999,
               boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
+              pointerEvents: 'none',
             }}
           >
             {message}
@@ -119,7 +112,7 @@ export default function Cat({
               style={{
                 position: 'absolute',
                 left: '-6px',
-                top: '50%',
+                top: '80%',
                 transform: 'translateY(-50%)',
                 width: 0,
                 height: 0,
