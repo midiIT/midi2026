@@ -1,5 +1,5 @@
 import RoomGrid from './components/RoomGrid';
-import useResponsiveTiles from './hooks/useResponsiveTiles';
+import useResponsiveLayout from './hooks/useResponsiveLayout';
 import Sky from './components/Sky';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RoomDetail from './pages/RoomDetail';
@@ -14,11 +14,11 @@ import TeamMobile from './assets/rooms/teamRoomMobile.png';
 
 function App() {
   
-  const { isMobile } = useResponsiveTiles();
-  const contributors = isMobile ? ContributorsMobile : ContributorsPC;
-  const midiSocials = isMobile ? MidiSocialsMobile : MidiSocialsPC;
-  const team = isMobile ? TeamMobile : TeamPC;
-
+  const { deviceType } = useResponsiveLayout();
+  const contributors = deviceType === 'mobile' ? ContributorsMobile : ContributorsPC;
+  const midiSocials = deviceType === 'mobile' ? MidiSocialsMobile : MidiSocialsPC;
+  const team = deviceType === 'mobile' ? TeamMobile : TeamPC;
+  
   const rooms = [
     { id: 1, content: <span>Kambarys 1</span> },
     { id: 2, content: <img src={contributors} alt="Rėmėjai" className="w-full h-full" />, background: contributors },
