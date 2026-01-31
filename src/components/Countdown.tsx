@@ -1,7 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { calculateTimeLeft, type TimeLeft } from '../utils/timeUtils';
+import type { DeviceType } from '../hooks/useResponsiveLayout';
 
-const CountdownComponent: React.FC = () => {
+interface CountdownProps {
+  deviceType: DeviceType;
+}
+
+export default function Countdown({ deviceType }: CountdownProps) {
   const targetDate = import.meta.env.VITE_MIDI_DATE;
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(
@@ -18,37 +23,52 @@ const CountdownComponent: React.FC = () => {
 
   const padNumber = (num: number) => String(num).padStart(2, '0');
 
+  const isMobile = deviceType === 'mobile';
+
+  const timeUnits = [
+    { value: timeLeft.days, label: 'Dienos' },
+    { value: timeLeft.hours, label: 'Valandos' },
+    { value: timeLeft.minutes, label: 'Minutės' },
+    { value: timeLeft.seconds, label: 'Sekundės' },
+  ];
+
   return (
-    <div className="grid grid-cols-4 gap-4 md:gap-8 max-w-3xl mx-auto">
-      <div className="flex flex-col items-center">
-        <div className="text-6xl md:text-8xl font-bold">
-          {padNumber(timeLeft.days)}
-        </div>
-        <div className="text-lg md:text-xl mt-2">Dienos</div>
+    <div className="flex flex-col items-center py-2">
+      <div 
+        className="text-amber-100 font-bold mb-1 pt-10"
+        style={{
+          fontSize: isMobile ? '2rem' : '3rem',
+          textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+        }}
+      >
+        IKI MIDI LIKO
       </div>
 
-      <div className="flex flex-col items-center">
-        <div className="text-6xl md:text-8xl font-bold">
-          {padNumber(timeLeft.hours)}
-        </div>
-        <div className="text-lg md:text-xl mt-2">Valandos</div>
-      </div>
-
-      <div className="flex flex-col items-center">
-        <div className="text-6xl md:text-8xl font-bold">
-          {padNumber(timeLeft.minutes)}
-        </div>
-        <div className="text-lg md:text-xl mt-2">Minutės</div>
-      </div>
-
-      <div className="flex flex-col items-center">
-        <div className="text-6xl md:text-8xl font-bold">
-          {padNumber(timeLeft.seconds)}
-        </div>
-        <div className="text-lg md:text-xl mt-2">Sekundės</div>
+      <div className={`grid grid-cols-4 ${isMobile ? 'gap-2' : 'gap-6'}`}>
+        {timeUnits.map((unit, index) => (
+          <div key={index} className="flex flex-col items-center pb-10">
+            <div
+              className="font-bold text-white"
+              style={{
+                fontSize: isMobile ? '3rem' : '5rem',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+                fontVariantNumeric: 'tabular-nums',
+              }}
+            >
+              {padNumber(unit.value)}
+            </div>
+            <div
+              className="text-amber-100"
+              style={{
+                fontSize: isMobile ? '1.2rem' : '1.75rem',
+                textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
+              }}
+            >
+              {unit.label}
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
-};
-
-export default CountdownComponent;
+}

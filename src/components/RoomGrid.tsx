@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Room from './Room';
 import useResponsiveLayout from '../hooks/useResponsiveLayout';
 import Roof from './Roof';
+import Countdown from './Countdown';
 
 interface RoomData {
   id: string | number;
@@ -51,11 +52,7 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
         paddingBottom: deviceType === 'mobile' ? 0 : '1rem',
       }}
     >
-      {deviceType === 'mobile' && (
-        <div className="w-full py-4 text-center">
-          {/* Countdown will go here */}
-        </div>
-      )}
+      <Countdown deviceType={deviceType} />
 
       <Roof
         roofWidth={roofWidth}
