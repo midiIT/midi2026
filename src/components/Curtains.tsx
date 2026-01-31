@@ -37,14 +37,14 @@ export default function Curtains({
 
   const curtainStyle = deviceType === 'mobile' 
     ? { 
-        width: '100%', 
-        height: '35%',
-        transform: 'translateY(5%)',
+        width: '90%', 
+        height: '55%',
+        transform: 'translateY(5%) scaleX(1.4)',
       }
     : { 
-        width: '95%', 
+        width: '90%', 
         height: '85%',
-        transform: 'translateY(5%)',
+        transform: 'translateY(2%) scaleX(1.35)',
       };
 
   const imageStyle: React.CSSProperties = {
