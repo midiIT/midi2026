@@ -3,34 +3,7 @@ import RoomContent from '../RoomContent';
 import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomPC from '../../assets/rooms/activitiesRoomPC.png';
 import RoomMobile from '../../assets/rooms/activitiesRoomMobile.png';
-
-const events = [
-    {
-        date: "March 15, 2026",
-        title: "Medieval Fair",
-        description: "Join us for a grand medieval celebration featuring jousting tournaments, traditional music, and authentic period cuisine. All students and faculty welcome!"
-    },
-    {
-        date: "April 3, 2026",
-        title: "Guest Lecture Series",
-        description: "Professor Eleanor Ashford will discuss 'Life in Medieval Universities: Then and Now'. Free admission with student ID."
-    },
-    {
-        date: "April 20, 2026",
-        title: "Spring Festival",
-        description: "Celebrate the season with outdoor activities, live performances, and a showcase of student art and music projects."
-    },
-    {
-        date: "May 5, 2026",
-        title: "Honors Ceremony",
-        description: "Annual recognition of outstanding academic achievements and contributions to the university community."
-    },
-    {
-        date: "May 18, 2026",
-        title: "Graduation Week",
-        description: "Commencement ceremonies and celebrations honoring our graduating class. Events span the entire week."
-    }
-];
+import eventsData from '../../data/events.json';
 
 export default function Events() {
     const { deviceType } = useResponsiveLayout();
@@ -38,14 +11,14 @@ export default function Events() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handleNext = () => {
-        setCurrentIndex((prev) => (prev + 1) % events.length);
+        setCurrentIndex((prev) => (prev + 1) % eventsData.length);
     };
 
     const handleBack = () => {
-        setCurrentIndex((prev) => (prev - 1 + events.length) % events.length);
+        setCurrentIndex((prev) => (prev - 1 + eventsData.length) % eventsData.length);
     };
 
-    const currentEvent = events[currentIndex];
+    const currentEvent = eventsData[currentIndex];
 
     return (
         <RoomContent
@@ -54,7 +27,7 @@ export default function Events() {
         >
             <div className="flex flex-col items-center justify-between h-full py-8">
                 <div className="flex-1 flex flex-col justify-center max-w-2xl px-4">
-                    <h2 className="text-3xl font-bold mb-6 text-amber-900">Upcoming Events</h2>
+                    
                     
                     <div className="mb-6">
                         <p className="text-xl font-semibold text-amber-800 mb-3">
@@ -63,27 +36,39 @@ export default function Events() {
                         <h3 className="text-2xl font-bold mb-4 text-amber-900">
                             {currentEvent.title}
                         </h3>
-                        <p className="text-lg leading-relaxed text-gray-800">
+                        <p className="text-lg leading-relaxed text-gray-800 mb-4">
                             {currentEvent.description}
                         </p>
+                        
+                        {currentEvent.link && (
+                            <a
+                                href={currentEvent.link}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block px-6 py-2 bg-amber-700 text-amber-50 rounded font-semibold hover:bg-amber-600 transition-colors shadow-md border-2 border-amber-900 mt-2"
+                                style={{ fontFamily: 'serif' }}
+                            >
+                                Nuoroda į renginį
+                            </a>
+                        )}
                     </div>
 
                     <p className="text-sm text-gray-600 mt-4">
-                        Event {currentIndex + 1} of {events.length}
+                        Event {currentIndex + 1} of {eventsData.length}
                     </p>
                 </div>
 
-                <div className="flex gap-6 mt-6">
+                <div className="flex gap-6 mt-4">
                     <button
                         onClick={handleBack}
-                        className="px-8 py-3 bg-amber-800 text-amber-50 rounded font-bold text-lg hover:bg-amber-700 transition-colors shadow-lg border-2 border-amber-900"
+                        className="px-2 py-1 bg-amber-800 text-amber-50 rounded font-bold text-lg hover:bg-amber-700 transition-colors shadow-lg border-2 border-amber-900"
                         style={{ fontFamily: 'serif' }}
                     >
                         ← Back
                     </button>
                     <button
                         onClick={handleNext}
-                        className="px-8 py-3 bg-amber-800 text-amber-50 rounded font-bold text-lg hover:bg-amber-700 transition-colors shadow-lg border-2 border-amber-900"
+                        className="px-2 py-1 bg-amber-800 text-amber-50 rounded font-bold text-lg hover:bg-amber-700 transition-colors shadow-lg border-2 border-amber-900"
                         style={{ fontFamily: 'serif' }}
                     >
                         Next →
