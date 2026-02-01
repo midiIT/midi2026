@@ -1,5 +1,5 @@
 import RoomContent from '../RoomContent';
-import useResponsiveTiles from '../../hooks/useResponsiveTiles';
+import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomPC from '../../assets/rooms/teamRoomPC.png';
 import RoomMobile from '../../assets/rooms/teamRoomMobile.png';
 import teamMembers from '../../data/team.json';
@@ -36,16 +36,16 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
         </div>
       </div>
       <div className="p-2 sm:p-3 text-center flex flex-col flex-grow">
-        <h3 className="text-sm sm:text-base font-semibold text-amber-900 leading-tight">
+        <h3 className="text-base sm:text-base font-semibold text-amber-900 leading-tight">
           <span className="block">{firstName}</span>
           {surname && <span className="block">{surname}</span>}
         </h3>
-        <p className="text-xs text-amber-700 mt-1">
+        <p className="text-sm text-amber-700 mt-1">
           {member.position}
         </p>
-        <div className="text-xs text-amber-800 mt-auto pt-2">
+        <div className="text-sm text-amber-800 mt-auto pt-2">
           <span className="font-medium">El. paštas:</span>
-          <p className="break-all text-[10px]">
+          <p className="break-all text-sm">
             {member.email}
           </p>
         </div>
@@ -87,8 +87,8 @@ function TeamGrid() {
 }
 
 export default function Team() {
-  const { isMobile } = useResponsiveTiles();
-  const bck = isMobile ? RoomMobile : RoomPC;
+  const { deviceType } = useResponsiveLayout();
+  const bck = deviceType === 'mobile' ? RoomMobile : RoomPC;
 
   return (
     <RoomContent
