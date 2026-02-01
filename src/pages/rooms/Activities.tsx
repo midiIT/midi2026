@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import RoomContent from '../RoomContent';
-import useResponsiveTiles from '../../hooks/useResponsiveTiles';
+import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomPC from '../../assets/rooms/activitiesRoomPC.png';
 import RoomMobile from '../../assets/rooms/activitiesRoomMobile.png';
 import eventsData from '../../data/events.json';
 
 export default function Events() {
-    const { isMobile } = useResponsiveTiles();
-    const bck = isMobile ? RoomMobile : RoomPC;
+    const { deviceType } = useResponsiveLayout();
+    const bck = deviceType === 'mobile' ? RoomMobile : RoomPC;
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const handleNext = () => {
