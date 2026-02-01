@@ -4,6 +4,7 @@ import Cat from './Cat';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { DeviceType } from '../hooks/useResponsiveLayout';
+import RoomSign from './RoomSign';
 
 interface RoomProps {
   children: React.ReactNode;
@@ -174,6 +175,12 @@ export default function Room({
           contentInset={contentInset}
           message={roomMessages[room?.id ?? ''] || 'Miau!'}
           onRoomClick={navigateToRoom}
+        />
+
+        <RoomSign 
+          roomId={room?.id ?? '1'} 
+          deviceType={deviceType} 
+          onClick={navigateToRoom}
         />
       </div>
     </div>
