@@ -59,12 +59,6 @@ const sponsors: Sponsor[] = [
     tier: SponsorTier.bronze,
   },
   {
-    href: 'https://www.visma.lt/',
-    src: '/2026/images/sponsors/bronze/visma.svg',
-    alt: 'Visma',
-    tier: SponsorTier.bronze,
-  },
-  {
     href: 'https://www.westernunion.com/lt/lt/home.html',
     src: '/2026/images/sponsors/bronze/westernUnion.png',
     alt: 'Western Union',
