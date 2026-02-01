@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import RoomContent from '../RoomContent';
 import useResponsiveLayout from '../../hooks/useResponsiveLayout';
+import RoomSign from '../../components/RoomSign';
 import RoomPC from '../../assets/rooms/activitiesRoomPC.png';
 import RoomMobile from '../../assets/rooms/activitiesRoomMobile.png';
 import eventsData from '../../data/events.json';
@@ -9,6 +10,7 @@ export default function Events() {
     const { deviceType } = useResponsiveLayout();
     const bck = deviceType === 'mobile' ? RoomMobile : RoomPC;
     const [currentIndex, setCurrentIndex] = useState(0);
+    const isMobile = deviceType === 'mobile';
 
     const handleNext = () => {
         setCurrentIndex((prev) => (prev + 1) % eventsData.length);
@@ -25,54 +27,76 @@ export default function Events() {
             background={bck}
             className="text-black text-center"
         >
-            <div className="flex flex-col items-center justify-between h-full py-8">
-                <div className="flex-1 flex flex-col justify-center max-w-2xl px-4">
-                    
-                    
-                    <div className="mb-6">
-                        <p className="text-xl font-semibold text-amber-800 mb-3">
+            <div className="flex flex-col h-full">
+                {/* Top navigation for mobile */}
+                {isMobile && (
+                    <div className="flex-shrink-0 flex justify-between items-center px-2 py-1">
+                        <button
+                            onClick={handleBack}
+                            className="text-2xl text-amber-800 font-bold px-3 py-1"
+                        >
+                            ←
+                        </button>
+                        <button
+                            onClick={handleNext}
+                            className="text-2xl text-amber-800 font-bold px-3 py-1"
+                        >
+                            →
+                        </button>
+                    </div>
+                )}
+
+                {/* Scrollable content area */}
+                <div className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide px-4 py-2">
+                    <div className="mb-4">
+                        <p className="text-lg font-semibold text-amber-800 mb-2">
                             {currentEvent.date}
                         </p>
-                        <h3 className="text-2xl font-bold mb-4 text-amber-900">
+                        <h3 className="text-xl font-bold mb-3 text-amber-900">
                             {currentEvent.title}
                         </h3>
-                        <p className="text-lg leading-relaxed text-gray-800 mb-4">
+                        <p className="text-base leading-relaxed text-gray-800">
                             {currentEvent.description}
                         </p>
-                        
-                        {currentEvent.link && (
-                            <a
-                                href={currentEvent.link}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="inline-block px-6 py-2 bg-amber-700 text-amber-50 rounded font-semibold hover:bg-amber-600 transition-colors shadow-md border-2 border-amber-900 mt-2"
-                                style={{ fontFamily: 'serif' }}
-                            >
-                                Nuoroda į renginį
-                            </a>
-                        )}
                     </div>
-
-                    <p className="text-sm text-gray-600 mt-4">
-                        Event {currentIndex + 1} of {eventsData.length}
-                    </p>
                 </div>
 
-                <div className="flex gap-6 mt-4">
-                    <button
-                        onClick={handleBack}
-                        className="px-2 py-1 bg-amber-800 text-amber-50 rounded font-bold text-lg hover:bg-amber-700 transition-colors shadow-lg border-2 border-amber-900"
-                        style={{ fontFamily: 'serif' }}
-                    >
-                        ← Back
-                    </button>
-                    <button
-                        onClick={handleNext}
-                        className="px-2 py-1 bg-amber-800 text-amber-50 rounded font-bold text-lg hover:bg-amber-700 transition-colors shadow-lg border-2 border-amber-900"
-                        style={{ fontFamily: 'serif' }}
-                    >
-                        Next →
-                    </button>
+                {/* Fixed navigation area */}
+                <div className="flex-shrink-0 flex flex-col items-center gap-1 py-2">
+                    <p className="text-sm text-gray-600">
+                        Event {currentIndex + 1} of {eventsData.length}
+                    </p>
+                    
+                    {/* Event link */}
+                    {currentEvent.link && (
+                        <RoomSign
+                            deviceType={deviceType}
+                            onClick={() => window.open(currentEvent.link, '_blank')}
+                            asButton
+                        >
+                            Nuoroda į renginį
+                        </RoomSign>
+                    )}
+                    
+                    {/* Desktop/tablet navigation */}
+                    {!isMobile && (
+                        <div className="flex items-center gap-4 mt-1">
+                            <RoomSign
+                                deviceType={deviceType}
+                                onClick={handleBack}
+                                asButton
+                            >
+                                ← Back
+                            </RoomSign>
+                            <RoomSign
+                                deviceType={deviceType}
+                                onClick={handleNext}
+                                asButton
+                            >
+                                Next →
+                            </RoomSign>
+                        </div>
+                    )}
                 </div>
             </div>
         </RoomContent>
