@@ -1,5 +1,5 @@
 import RoomGrid from './components/RoomGrid';
-import useResponsiveTiles from './hooks/useResponsiveTiles';
+import useResponsiveLayout from './hooks/useResponsiveLayout';
 import Sky from './components/Sky';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RoomDetail from './pages/RoomDetail';
@@ -8,23 +8,27 @@ import ContributorsPC from './assets/rooms/contributorsRoomPC.png';
 import ContributorsMobile from './assets/rooms/contributorsRoomMobile.png';
 import RoSocialsPC from './assets/rooms/roSocialsRoomPC.png'
 import RoSocialsMobile from './assets/rooms/roSocialsRoomMobile.png'
+import MidiSocialsPC from './assets/rooms/midiSocialsRoomPC.png'
+import MidiSocialsMobile from './assets/rooms/midiSocialsRoomMobile.png'
 import TeamPC from './assets/rooms/teamRoomPC.png';
 import TeamMobile from './assets/rooms/teamRoomMobile.png';
 
 
 function App() {
   
-  const { isMobile } = useResponsiveTiles();
-  const contributors = isMobile ? ContributorsMobile : ContributorsPC;
-  const roSocials = isMobile ? RoSocialsMobile : RoSocialsPC;
-  const team = isMobile ? TeamMobile : TeamPC;
+  const { deviceType } = useResponsiveLayout();
+  const contributors = deviceType === 'mobile' ? ContributorsMobile : ContributorsPC;
+  const midiSocials = deviceType === 'mobile' ? MidiSocialsMobile : MidiSocialsPC;
+  const roSocials = deviceType === 'mobile' ? RoSocialsMobile : RoSocialsPC;
+  const team = deviceType === 'mobile' ? TeamMobile : TeamPC;
   
   const rooms = [
     { id: 1, content: <span>Kambarys 1</span> },
     { id: 2, content: <img src={contributors} alt="Rėmėjai" className="w-full h-full" />, background: contributors },
     { id: 3, content: <img src={team} alt="Komanda" className="w-full h-full" />, background: team },
-    { id: 4, content: <span>Kambarys 4</span> },
+    { id: 4, content: <img src={midiSocials} alt="Socialinės medijos MIDI" className="w-full h-full" />, background: midiSocials },
     { id: 5, content: <img src={roSocials} alt="Socialinės medijos RO" className="w-full h-full" />, background: roSocials },
+    { id: 5, content: <span>Kambarys 5</span> },
     { id: 6, content: <span>Kambarys 6</span> },
   ];
 
