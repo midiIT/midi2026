@@ -2,9 +2,12 @@ import sign from "../assets/sign.png";
 import type { DeviceType } from "../hooks/useResponsiveLayout";
 
 interface RoomSignProps {
-  roomId: string;
+  roomId?: string;
   deviceType: DeviceType;
   onClick?: () => void;
+  children?: React.ReactNode;
+  className?: string;
+  asButton?: boolean;
 }
 
 const roomNames: Record<string, string> = {
@@ -16,35 +19,55 @@ const roomNames: Record<string, string> = {
   '6': 'Bendradarbiavimas',
 };
 
-export default function RoomSign({ roomId, deviceType, onClick }: RoomSignProps) {
-  const name = roomNames[roomId] || 'Kambarys';
-
+export default function RoomSign({ 
+  roomId, 
+  deviceType, 
+  onClick, 
+  children,
+  className = '',
+  asButton = false,
+}: RoomSignProps) {
+  const name = children || (roomId ? roomNames[roomId] : '') || 'Kambarys';
   const isMobile = deviceType === 'mobile';
+
+  const positionStyle = asButton 
+    ? {
+        position: 'relative' as const,
+        transform: 'none',
+        left: 'auto',
+        bottom: 'auto'
+      }
+    : {
+        position: 'absolute' as const,
+        bottom: isMobile ? '8%' : '0%',
+        left: '50%',
+        transform: 'translateX(-50%)',
+      };
 
   return (
     <div
       onClick={onClick}
+      className={className}
       style={{
-        position: 'absolute',
-        bottom: isMobile ? '8%' : '0%',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        width: isMobile ? '80%' : '40%',
+        ...positionStyle,
+        width: asButton ? 'auto' : (isMobile ? '80%' : '40%'),
         maxWidth: '400px',
         zIndex: 100,
-        cursor: 'pointer',
+        cursor: onClick ? 'pointer' : 'default',
+        display: asButton ? 'inline-block' : 'block', 
       }}
     >
-        <img
-            src={sign}
-            alt=""
-            style={{
-                width: '100%',
-                height: isMobile ? '60px' : '30px',
-                objectFit: 'fill',
-                display: 'block',
-            }}
-        />
+      <img
+        src={sign}
+        alt=""
+        style={{
+          width: '100%',
+          minWidth: asButton ? '150px' : undefined,
+          height: asButton ? '60px' : (isMobile ? '60px' : '30px'),
+          objectFit: 'fill',
+          display: 'block',
+        }}
+      />
       <span
         style={{
           position: 'absolute',
@@ -57,6 +80,7 @@ export default function RoomSign({ roomId, deviceType, onClick }: RoomSignProps)
           textAlign: 'center',
           textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
           whiteSpace: 'nowrap',
+          padding: '0 1rem',
         }}
       >
         {name}

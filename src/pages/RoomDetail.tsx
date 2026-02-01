@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { MedievalButton } from '../components/MedievalButton';
+import RoomSign from '../components/RoomSign';
+import useResponsiveLayout from '../hooks/useResponsiveLayout';
 import Activities from './rooms/Activities';
 import Contributors from './rooms/Contributors';
 import Team from './rooms/Team';
@@ -21,6 +22,7 @@ export default function RoomDetail() {
   const { roomId } = useParams();
   const navigate = useNavigate();
   const [isEntering] = useState(true);
+  const { deviceType } = useResponsiveLayout();
 
   const RoomComponent = roomComponents[roomId || ''];
 
@@ -31,11 +33,13 @@ export default function RoomDetail() {
       }`}
     >
       <div className="absolute top-4 left-4 z-50">
-        <MedievalButton
+        <RoomSign
+          deviceType={deviceType}
           onClick={() => navigate('/')}
+          asButton
         >
           ← Back to Castle
-        </MedievalButton>
+        </RoomSign>
       </div>
       <RoomComponent />
     </div>
