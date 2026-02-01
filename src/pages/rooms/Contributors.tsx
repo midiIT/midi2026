@@ -80,11 +80,11 @@ function SponsorSection({ tier }: { tier: SponsorTierType }) {
   };
 
   const tierClasses = {
-    [SponsorTier.diamond]: 'text-cyan-300 border-cyan-300',
-    [SponsorTier.gold]: 'text-yellow-400 border-yellow-400',
-    [SponsorTier.silver]: 'text-gray-300 border-gray-300',
-    [SponsorTier.bronze]: 'text-amber-600 border-amber-600',
-    [SponsorTier.partners]: 'text-amber-800 border-amber-800',
+    [SponsorTier.diamond]: 'text-diamond border-diamond',
+    [SponsorTier.gold]: 'text-gold border-gold',
+    [SponsorTier.silver]: 'text-silver border-silver',
+    [SponsorTier.bronze]: 'text-bronze border-bronze',
+    [SponsorTier.partners]: 'text-partners border-partners',
   };
 
   const logoSizes = {

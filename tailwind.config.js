@@ -4,21 +4,21 @@ export default {
   theme: {
     extend: {
       colors: {
-        diamond: '#02f2fa',
-        gold: '#FFD700',
-        silver: '#C0C0C0',
+        diamond: '#018E94',
+        gold: '#B59410',
+        silver: '#9D9D9D',
         bronze: '#CD7F32',
         standard: '#3B82F6',
         purple: '#c39bd3',
         partner: '#10B981',
       },
       screens: {
-        es: '360px', // Extra Small (custom)
-        sm: '640px', // Small (default)
-        md: '768px', // Medium (default)
-        lg: '1024px', // Large (default)
-        xl: '1280px', // Extra Large (default)
-        '2xl': '1536px', // 2X Extra Large (default)
+        es: '360px',
+        sm: '640px',
+        md: '768px',
+        lg: '1024px',
+        xl: '1280px',
+        '2xl': '1536px',
       },
       keyframes: {
         talk: {
