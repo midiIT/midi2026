@@ -56,7 +56,7 @@ export default function Cat({
   };
 
   const catSize = deviceType === 'mobile' ? '6rem' : '4rem';
-  const catMarginBottom = deviceType === 'mobile' ? '10vh' : '0';
+  const catMarginBottom = deviceType === 'mobile' ? '2vh' : '0';
 
   return (
     <div

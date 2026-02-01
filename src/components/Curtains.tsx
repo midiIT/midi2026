@@ -38,8 +38,8 @@ export default function Curtains({
   const curtainStyle = deviceType === 'mobile' 
     ? { 
         width: '90%', 
-        height: '55%',
-        transform: 'translateY(5%) scaleX(1.4)',
+        height: '82%',
+        transform: 'translateY(6%) scaleX(1.4)',
       }
     : { 
         width: '90%', 

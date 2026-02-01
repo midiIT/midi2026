@@ -26,7 +26,7 @@ export default function RoomSign({ roomId, deviceType, onClick }: RoomSignProps)
       onClick={onClick}
       style={{
         position: 'absolute',
-        bottom: isMobile ? '8%' : '0%',
+        bottom: isMobile ? '0%' : '0%',
         left: '50%',
         transform: 'translateX(-50%)',
         width: isMobile ? '80%' : '40%',

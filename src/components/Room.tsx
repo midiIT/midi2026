@@ -126,7 +126,7 @@ export default function Room({
         <img
           src={windowImage}
           alt=""
-          className="absolute inset-0 w-full h-full object-fill"
+          className="absolute inset-0 w-full h-full object-cover"
           style={{ zIndex: 10 }}
         />
 
