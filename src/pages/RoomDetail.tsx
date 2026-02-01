@@ -38,7 +38,7 @@ export default function RoomDetail() {
           onClick={() => navigate('/')}
           asButton
         >
-          ← Back to Castle
+          ← Atgal į pilį
         </RoomSign>
       </div>
       <RoomComponent />

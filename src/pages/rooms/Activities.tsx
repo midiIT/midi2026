@@ -28,7 +28,6 @@ export default function Events() {
             className="text-black text-center"
         >
             <div className="flex flex-col h-full">
-                {/* Top navigation for mobile */}
                 {isMobile && (
                     <div className="flex-shrink-0 flex justify-between items-center px-2 py-1">
                         <button
@@ -46,7 +45,6 @@ export default function Events() {
                     </div>
                 )}
 
-                {/* Scrollable content area */}
                 <div className="flex-1 overflow-y-auto overflow-x-hidden scrollbar-hide px-4 py-2">
                     <div className="mb-4">
                         <p className="text-lg font-semibold text-amber-800 mb-2">
@@ -61,14 +59,13 @@ export default function Events() {
                     </div>
                 </div>
 
-                {/* Fixed navigation area */}
                 <div className="flex-shrink-0 flex flex-col items-center gap-1 py-2">
                     <p className="text-sm text-gray-600">
                         Event {currentIndex + 1} of {eventsData.length}
                     </p>
                     
-                    {/* Event link */}
-                    {currentEvent.link && (
+                    {/* No event links for now */}
+                    {/* {currentEvent.link && (
                         <RoomSign
                             deviceType={deviceType}
                             onClick={() => window.open(currentEvent.link, '_blank')}
@@ -76,9 +73,8 @@ export default function Events() {
                         >
                             Nuoroda į renginį
                         </RoomSign>
-                    )}
+                    )} */}
                     
-                    {/* Desktop/tablet navigation */}
                     {!isMobile && (
                         <div className="flex items-center gap-4 mt-1">
                             <RoomSign
@@ -86,14 +82,14 @@ export default function Events() {
                                 onClick={handleBack}
                                 asButton
                             >
-                                ← Back
+                                ← Atgal
                             </RoomSign>
                             <RoomSign
                                 deviceType={deviceType}
                                 onClick={handleNext}
                                 asButton
                             >
-                                Next →
+                                Tolyn →
                             </RoomSign>
                         </div>
                     )}
