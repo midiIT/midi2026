@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import RoomContent from '../RoomContent';
-import useResponsiveTiles from '../../hooks/useResponsiveTiles';
+import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomPC from '../../assets/rooms/collaborationRoomPC.png';
 import RoomMobile from '../../assets/rooms/collaborationRoomMobile.png';
 
@@ -11,8 +11,8 @@ const pdfFiles = {
 };
 
 export default function CollaborationProposal() {
-    const { isMobile } = useResponsiveTiles();
-    const bck = isMobile ? RoomMobile : RoomPC;
+    const { deviceType } = useResponsiveLayout();
+    const bck = deviceType === 'mobile' ? RoomMobile : RoomPC;
     const [showPopup, setShowPopup] = useState(false);
     const [activePdf, setActivePdf] = useState<string | null>(null);
 
