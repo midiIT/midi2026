@@ -86,14 +86,14 @@ export default function Events() {
                                 onClick={handleBack}
                                 asButton
                             >
-                                ← Back
+                                ← Atgal
                             </RoomSign>
                             <RoomSign
                                 deviceType={deviceType}
                                 onClick={handleNext}
                                 asButton
                             >
-                                Next →
+                                Tolyn →
                             </RoomSign>
                         </div>
                     )}
