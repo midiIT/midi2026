@@ -1,5 +1,5 @@
 import RoomContent from '../RoomContent';
-import useResponsiveTiles from '../../hooks/useResponsiveTiles';
+import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomPC from '../../assets/rooms/contributorsRoomPC.png';
 import RoomMobile from '../../assets/rooms/contributorsRoomMobile.png';
 
@@ -148,8 +148,8 @@ function SponsorsContent() {
 }
 
 export default function Contributors() {
-  const { isMobile } = useResponsiveTiles();
-  const bck = isMobile ? RoomMobile : RoomPC;
+  const { deviceType } = useResponsiveLayout();
+  const bck = deviceType === 'mobile' ? RoomMobile : RoomPC;
 
   return (
     <RoomContent background={bck}>

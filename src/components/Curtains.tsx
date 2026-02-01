@@ -1,96 +1,89 @@
-import useResponsiveTiles from "../hooks/useResponsiveTiles";
 import curtainsOpenAndClose from "../assets/curtains_open_and_close.gif";
 import curtainsOpen from "../assets/curtains.png";
 import { useCallback, useEffect, useState } from "react";
-import windowImage from "../assets/window.png";
-import Cat from "./Cat";
+import type { DeviceType } from "../hooks/useResponsiveLayout";
+
+interface ContentInset {
+  top: string;
+  bottom: string;
+  left: string;
+  right: string;
+}
+
+interface CurtainsProps {
+  deviceType: DeviceType;
+  isRoomOpen: boolean;
+  contentInset: ContentInset;
+  roomId: string;
+}
+
 export default function Curtains({
-  className,
-  inView,
-  isHovered,
-}: { className?: string, inView: boolean, isHovered: boolean }) {
-  const { tileSize, isMobile } = useResponsiveTiles();
-  const enableGif = isMobile ? inView : isHovered;
+  deviceType,
+  isRoomOpen,
+  contentInset,
+}: CurtainsProps) {
+  const [gifKey, setGifKey] = useState(0);
 
-  const [hoverKey, setHoverKey] = useState<number>(0);
-  const [gifOrImage, setGifOrImage] = useState<string>();
-  const [prevEnable, setPrevEnable] = useState(enableGif);
-
-  const replay = useCallback(() => setHoverKey(Date.now()), []);
-  const gifSrc = hoverKey ? `${curtainsOpenAndClose}?_=${hoverKey}` : curtainsOpenAndClose;
-
-  if (enableGif !== prevEnable) {
-    setPrevEnable(enableGif);
-    if (enableGif) {
-      replay();
-    }
-  }
+  const replay = useCallback(() => setGifKey(Date.now()), []);
 
   useEffect(() => {
-    const imageDelay = enableGif ? 200 : 1000;
-    
-    const timer = setTimeout(() => {
-      setGifOrImage(enableGif ? gifSrc : curtainsOpen);
-    }, imageDelay);
+    if (isRoomOpen) {
+      const timer = setTimeout(replay, 0);
+      return () => clearTimeout(timer);
+    }
+  }, [isRoomOpen, replay]);
 
-    return () => clearTimeout(timer);
-  }, [enableGif, gifSrc]);
+  const gifSrc = `${curtainsOpenAndClose}?_=${gifKey}`;
+
+  const curtainStyle = deviceType === 'mobile' 
+    ? { 
+        width: '100%', 
+        height: '35%',
+        transform: 'translateY(5%)',
+      }
+    : { 
+        width: '95%', 
+        height: '85%',
+        transform: 'translateY(5%)',
+      };
+
+  const imageStyle: React.CSSProperties = {
+    position: 'absolute',
+    pointerEvents: 'none',
+    zIndex: 2000,
+    objectFit: 'fill',
+    ...curtainStyle,
+  };
 
   return (
-      <div
-        className={`absolute left-0 top-0 right-0 bottom-0 ${className ?? ''}`}
-        style={{
-            padding: tileSize,
-        }}
-      >
-        <div  
-          className={`${className ?? ''} ${ (isMobile && inView) ? 'opacity-0' : 'opacity-100'} group-hover:opacity-0 group-focus:opacity-0 transition-opacity duration-500 delay-[800ms]`}
+    <div
+      className="absolute"
+      style={{
+        top: contentInset.top,
+        bottom: contentInset.bottom,
+        left: contentInset.left,
+        right: contentInset.right,
+      }}
+    >
+      <div className="absolute inset-0 flex items-center justify-center">
+        <img
+          src={curtainsOpen}
+          alt="Curtains"
           style={{
-            position: 'absolute',
-            top: tileSize,
-            left: tileSize,
-            right: tileSize,
-            bottom: tileSize,
-            pointerEvents: 'none',
-            background: isMobile ? "#0000005e" : "none",
-            zIndex: 999,
+            ...imageStyle,
+            opacity: isRoomOpen ? 0 : 1,
           }}
         />
-        <div
-          style={{
-            position: 'absolute',
-            top: tileSize,
-            left: tileSize,
-            right: tileSize,
-            bottom: tileSize,
-            transform: `translateY(${tileSize}}px)`,
-          }}
-          className="flex items-center justify-center"
-        >          
-          <img 
-            src={windowImage}   
-            className="w-[100%] h-[100%]"        
-            style={{
-              pointerEvents: 'none',
-              position: 'absolute',
-              zIndex: 1001,
-            }}
-          />
-          <img
-            src={gifOrImage}
-            onMouseEnter={replay}
-            className="cursor-pointer w-[95%] h-[86%]"
-            style={{
-              position: 'absolute',
-              pointerEvents: 'none',
-              transform: `translateY(${tileSize*0.4}px)`,
-              zIndex: 1000,
-            }}
-          />
-          
-          <Cat className={className} inView={inView}/> 
 
-        </div>
+        <img
+          src={gifSrc}
+          alt="Curtains Animating"
+          style={{
+            ...imageStyle,
+            opacity: isRoomOpen ? 1 : 0,
+          }}
+        />
       </div>
+    </div>
   );
 }
