@@ -8,6 +8,7 @@ interface RoomSignProps {
   children?: React.ReactNode;
   className?: string;
   asButton?: boolean;
+  scale?: number;
 }
 
 const roomNames: Record<string, string> = {
@@ -26,9 +27,11 @@ export default function RoomSign({
   children,
   className = '',
   asButton = false,
+  scale = 1,
 }: RoomSignProps) {
   const name = children || (roomId ? roomNames[roomId] : '') || 'Kambarys';
   const isMobile = deviceType === 'mobile';
+  const isTablet = deviceType === 'tablet';
 
   const positionStyle = asButton 
     ? {
@@ -44,6 +47,31 @@ export default function RoomSign({
         transform: 'translateX(-50%)',
       };
 
+  const getBaseHeight = () => {
+    if (!asButton) {
+      return isMobile ? 60 : 30;
+    }
+    if (isTablet) return 80;
+    if (isMobile) return 60;
+    return 60;
+  };
+
+  const getBaseFontSize = () => {
+    if (isTablet && asButton) return 1.25;
+    if (isMobile) return 1;
+    return 0.875;
+  };
+
+  const getBaseMinWidth = () => {
+    if (!asButton) return 0;
+    if (isTablet) return 200;
+    return 150;
+  };
+
+  const height = getBaseHeight() * scale;
+  const fontSize = getBaseFontSize() * scale;
+  const minWidth = getBaseMinWidth() * scale;
+
   return (
     <div
       onClick={onClick}
@@ -51,7 +79,7 @@ export default function RoomSign({
       style={{
         ...positionStyle,
         width: asButton ? 'auto' : (isMobile ? '80%' : '40%'),
-        maxWidth: '400px',
+        maxWidth: 400 * scale,
         zIndex: 100,
         cursor: onClick ? 'pointer' : 'default',
         display: asButton ? 'inline-block' : 'block', 
@@ -62,10 +90,11 @@ export default function RoomSign({
         alt=""
         style={{
           width: '100%',
-          minWidth: asButton ? '150px' : undefined,
-          height: asButton ? '60px' : (isMobile ? '60px' : '30px'),
+          minWidth: minWidth > 0 ? `${minWidth}px` : undefined,
+          height: `${height}px`,
           objectFit: 'fill',
           display: 'block',
+          pointerEvents: 'none',
         }}
       />
       <span
@@ -75,12 +104,13 @@ export default function RoomSign({
           left: '50%',
           transform: 'translate(-50%, -50%)',
           color: '#f5f5dc',
-          fontSize: isMobile ? '1rem' : '0.875rem',
+          fontSize: `${fontSize}rem`,
           fontWeight: 'bold',
           textAlign: 'center',
           textShadow: '1px 1px 2px rgba(0,0,0,0.8)',
           whiteSpace: 'nowrap',
           padding: '0 1rem',
+          pointerEvents: 'none',
         }}
       >
         {name}
