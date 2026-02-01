@@ -1,0 +1,32 @@
+[
+    {
+        "date": "March 15, 2026",
+        "title": "Medieval Fair",
+        "description": "Join us for a grand medieval celebration featuring jousting tournaments, traditional music, and authentic period cuisine. All students and faculty welcome!",
+        "link": "https://example.com/medieval-fair"
+    },
+    {
+        "date": "April 3, 2026",
+        "title": "Guest Lecture Series",
+        "description": "Professor Eleanor Ashford will discuss 'Life in Medieval Universities: Then and Now'. Free admission with student ID.",
+        "link": "https://example.com/guest-lecture"
+    },
+    {
+        "date": "April 20, 2026",
+        "title": "Spring Festival",
+        "description": "Celebrate the season with outdoor activities, live performances, and a showcase of student art and music projects.",
+        "link": "https://example.com/spring-festival"
+    },
+    {
+        "date": "May 5, 2026",
+        "title": "Honors Ceremony",
+        "description": "Annual recognition of outstanding academic achievements and contributions to the university community.",
+        "link": "https://example.com/honors-ceremony"
+    },
+    {
+        "date": "May 18, 2026",
+        "title": "Graduation Week",
+        "description": "Commencement ceremonies and celebrations honoring our graduating class. Events span the entire week.",
+        "link": "https://example.com/graduation-week"
+    }
+]
