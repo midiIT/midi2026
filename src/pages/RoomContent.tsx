@@ -1,4 +1,4 @@
-import ScrollImage from '../assets/rooms/scroll.png';
+import ScrollImage from '../assets/scroll.png';
 
 interface RoomContentProps {
   background: string;
