@@ -14,6 +14,7 @@ interface CurtainsProps {
   deviceType: DeviceType;
   isRoomOpen: boolean;
   contentInset: ContentInset;
+  isBase?: boolean;
   roomId: string;
 }
 
@@ -21,6 +22,7 @@ export default function Curtains({
   deviceType,
   isRoomOpen,
   contentInset,
+  isBase,
 }: CurtainsProps) {
   const [gifKey, setGifKey] = useState(0);
 
@@ -38,8 +40,8 @@ export default function Curtains({
   const curtainStyle = deviceType === 'mobile' 
     ? { 
         width: '90%', 
-        height: '82%',
-        transform: 'translateY(6%) scaleX(1.4)',
+        height: isBase ? '60%' : '82%',
+        transform: isBase ? 'translateY(-23%) scaleX(1.4)' : 'translateY(6%) scaleX(1.4)',
       }
     : { 
         width: '90%', 

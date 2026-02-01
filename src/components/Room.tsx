@@ -5,6 +5,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { DeviceType } from '../hooks/useResponsiveLayout';
 import RoomSign from './RoomSign';
+import basePc from '../assets/base_pc.png';
+import baseMobile from '../assets/base_mobile.png';
 
 interface RoomProps {
   children: React.ReactNode;
@@ -16,6 +18,7 @@ interface RoomProps {
   className?: string;
   room?: { id: string };
   isActive?: boolean;
+  isBase?: boolean;
   onRoomTap?: (roomId: string) => 'activate' | 'navigate';
 }
 
@@ -38,6 +41,7 @@ export default function Room({
   className,
   room,
   isActive = false,
+  isBase = true,
   onRoomTap,
 }: RoomProps) {
   const [refView, inView] = useInView();
@@ -45,6 +49,8 @@ export default function Room({
   const navigate = useNavigate();
   const [isZooming, setIsZooming] = useState(false);
   const [clickPosition, setClickPosition] = useState({ x: 0, y: 0 });
+
+  const baseHeightDifference = 220;
 
   const contentInset =
     deviceType === 'mobile'
@@ -61,6 +67,10 @@ export default function Room({
         return isHovered;
     }
   })();
+
+  const trueWindowImage = !isBase ? windowImage : deviceType === 'mobile'
+    ? baseMobile
+    : basePc;
 
   const handleRoomClick = async (e: React.MouseEvent<HTMLDivElement>) => {
     e.stopPropagation();
@@ -86,7 +96,7 @@ export default function Room({
 
     setIsZooming(true);
 
-    await new Promise(resolve => setTimeout(resolve, 400));
+    await new Promise(resolve => setTimeout(resolve, 400));     
     navigate(`/room/${roomId}`);
   };
 
@@ -107,7 +117,7 @@ export default function Room({
     <div
       ref={refView}
       className="relative group"
-      style={{ width, height, overflow: isZooming ? 'visible' : 'hidden' }}
+      style={{ width, height: isBase && deviceType === 'mobile' ? height + baseHeightDifference : height, overflow: 'visible' }}
       onPointerEnter={() => setIsHovered(true)}
       onPointerLeave={() => setIsHovered(false)}
     >
@@ -119,15 +129,17 @@ export default function Room({
             ? `translate(${clickPosition.x}px, ${clickPosition.y}px) scale(3)`
             : 'translate(0, 0) scale(1)',
           opacity: isZooming ? 0.5 : 1,
-          zIndex: isZooming ? 99999 : 'auto',
+          zIndex: isZooming ? 99999 : '1',
           pointerEvents: isZooming ? 'none' : 'auto',
         }}
       >
         <img
-          src={windowImage}
+          src={trueWindowImage}
           alt=""
-          className="absolute inset-0 w-full h-full object-cover"
-          style={{ zIndex: 10 }}
+          className={`absolute inset-0 w-full h-full sm:w-auto sm:h-auto object-cover max-h-100 ${
+                     isBase ? 'object-bottom' : ''
+                    }`}
+          style={{ zIndex: 10,}}
         />
 
         <div
@@ -147,6 +159,7 @@ export default function Room({
             ...contentInset,
             pointerEvents: 'none',
             zIndex: 1,
+            transform: isBase ? 'translateY(-25%)' : 'translateY(0)',
           }}
         >
           {children}
@@ -167,6 +180,7 @@ export default function Room({
           isRoomOpen={isRoomOpen}
           contentInset={contentInset}
           roomId={room?.id ?? 'unknown'}
+          isBase={isBase}
         />
 
         <Cat
@@ -175,12 +189,14 @@ export default function Room({
           contentInset={contentInset}
           message={roomMessages[room?.id ?? ''] || 'Miau!'}
           onRoomClick={navigateToRoom}
+          isBase={isBase}
         />
 
         <RoomSign 
           roomId={room?.id ?? '1'} 
           deviceType={deviceType} 
           onClick={navigateToRoom}
+          isBase={isBase}
         />
       </div>
     </div>

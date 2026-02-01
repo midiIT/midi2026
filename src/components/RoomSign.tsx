@@ -4,6 +4,7 @@ import type { DeviceType } from "../hooks/useResponsiveLayout";
 interface RoomSignProps {
   roomId: string;
   deviceType: DeviceType;
+  isBase?: boolean;
   onClick?: () => void;
 }
 
@@ -16,7 +17,7 @@ const roomNames: Record<string, string> = {
   '6': 'Bendradarbiavimas',
 };
 
-export default function RoomSign({ roomId, deviceType, onClick }: RoomSignProps) {
+export default function RoomSign({ roomId, deviceType, onClick, isBase}: RoomSignProps) {
   const name = roomNames[roomId] || 'Kambarys';
 
   const isMobile = deviceType === 'mobile';
@@ -26,11 +27,10 @@ export default function RoomSign({ roomId, deviceType, onClick }: RoomSignProps)
       onClick={onClick}
       style={{
         position: 'absolute',
-        bottom: isMobile ? '0%' : '0%',
+        bottom: isBase && isMobile ? '28%' : '0',
         left: '50%',
-        transform: 'translateX(-50%)',
-        width: isMobile ? '80%' : '40%',
-        maxWidth: '400px',
+        transform: 'translateX(-50%) translateY(50%)',
+        width: isMobile ? '102%' : '40%',
         zIndex: 100,
         cursor: 'pointer',
       }}
@@ -43,6 +43,7 @@ export default function RoomSign({ roomId, deviceType, onClick }: RoomSignProps)
                 height: isMobile ? '60px' : '30px',
                 objectFit: 'fill',
                 display: 'block',
+                zIndex: 100,
             }}
         />
       <span

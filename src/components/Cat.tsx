@@ -7,6 +7,7 @@ interface CatProps {
   deviceType: DeviceType;
   isVisible: boolean;
   contentInset: { top: string; bottom: string; left: string; right: string };
+  isBase?: boolean;
   message?: string;
   onRoomClick?: () => void;
 }
@@ -16,6 +17,7 @@ export default function Cat({
   isVisible, 
   contentInset, 
   message = "Miau!", 
+  isBase,
   onRoomClick,
 }: CatProps) {
   const [state, setState] = useState<'sleeping' | 'talking'>('sleeping');
@@ -56,7 +58,7 @@ export default function Cat({
   };
 
   const catSize = deviceType === 'mobile' ? '6rem' : '4rem';
-  const catMarginBottom = deviceType === 'mobile' ? '2vh' : '0';
+  const catMarginBottom = deviceType === 'mobile' ? (isBase ? 'calc(90% + 2vh)' : '2vh') : '0';
 
   return (
     <div

@@ -66,6 +66,7 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
           className={`flex ${deviceType === 'mobile' ? 'flex-col' : 'flex-row'} gap-0`}
           style={{
             width: deviceType === 'mobile' ? '100%' : 'auto',
+            zIndex: 6 - rowIndex,
           }}
         >
           {row.map((room) => {
@@ -82,6 +83,7 @@ export default function RoomGrid({ rooms }: RoomGridProps) {
                 className={room.className}
                 room={room.room ?? { id: roomId }}
                 isActive={activeRoomId === roomId}
+                isBase={rowIndex === rows.length - 1}
                 onRoomTap={handleRoomTap}
               >
                 {room.content}
