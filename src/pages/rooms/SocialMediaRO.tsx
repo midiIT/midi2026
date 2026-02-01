@@ -1,4 +1,4 @@
-import useResponsiveTiles from "../../hooks/useResponsiveTiles";
+import useResponsiveLayout from "../../hooks/useResponsiveLayout";
 import RoomContent from "../RoomContent";
 import RoomPC from '../../assets/rooms/roSocialsRoomPC.png'
 import RoomMobile from '../../assets/rooms/roSocialsRoomMobile.png'
@@ -8,8 +8,8 @@ import TikTokIcon from '../../assets/social_icons/tiktok.png'
 
 export default function SocialMediaRO() {
   
-    const { isMobile } = useResponsiveTiles();
-    const bck = isMobile ? RoomMobile : RoomPC;
+    const { deviceType } = useResponsiveLayout();
+    const bck = deviceType === 'mobile' ? RoomMobile : RoomPC;
 
     return <div className="w-full h-full bg-blue-200 flex items-center justify-center">
         <RoomContent
