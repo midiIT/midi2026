@@ -4,7 +4,6 @@ import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomPC from '../../assets/rooms/collaborationRoomPC.png';
 import RoomMobile from '../../assets/rooms/collaborationRoomMobile.png';
 
-// PDF file paths - replace these with your actual PDF file paths
 const pdfFiles = {
     english: '/2026/MIDI_BP_2026_EN.pdf',
     lietuviskai: '/2026/MIDI_BP_2026_LT.pdf'
@@ -33,7 +32,7 @@ export default function CollaborationProposal() {
                 className="text-black"
             >
                 <div className="max-w-3xl mx-auto px-4 py-8">
-                    <h2 className="text-3xl font-bold mb-8 text-amber-900 text-center">
+                    <h2 className="text-l sm:text-3xl font-bold mb-8 text-amber-900 text-center leading-tight">
                         Bendradarbiavimo pasiūlymai
                     </h2>
                     
@@ -42,7 +41,7 @@ export default function CollaborationProposal() {
                     <div className="flex flex-col gap-6 items-center">
                         <button
                             onClick={() => openPdf('english')}
-                            className="w-full max-w-md px-8 py-6 bg-amber-800 text-amber-50 rounded-lg font-bold text-xl hover:bg-amber-700 transition-all shadow-lg border-4 border-amber-900 hover:scale-105"
+                            className="w-full max-w-md px-4 py-6 bg-amber-800 text-amber-50 rounded-lg font-bold text-lg sm:text-xl hover:bg-amber-700 transition-all shadow-lg border-4 border-amber-900 hover:scale-105"
                             style={{ fontFamily: 'serif' }}
                         >
                             English
@@ -50,7 +49,7 @@ export default function CollaborationProposal() {
                         
                         <button
                             onClick={() => openPdf('lietuviskai')}
-                            className="w-full max-w-md px-8 py-6 bg-amber-800 text-amber-50 rounded-lg font-bold text-xl hover:bg-amber-700 transition-all shadow-lg border-4 border-amber-900 hover:scale-105"
+                            className="w-full max-w-md px-4 py-6 bg-amber-800 text-amber-50 rounded-lg font-bold text-lg sm:text-xl hover:bg-amber-700 transition-all shadow-lg border-4 border-amber-900 hover:scale-105"
                             style={{ fontFamily: 'serif' }}
                         >
                             Lietuviškai
