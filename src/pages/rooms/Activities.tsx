@@ -61,7 +61,7 @@ export default function Events() {
 
                 <div className="flex-shrink-0 flex flex-col items-center gap-1 py-2">
                     <p className="text-sm text-gray-600">
-                        Event {currentIndex + 1} of {eventsData.length}
+                        {currentIndex + 1} iš {eventsData.length}
                     </p>
                     
                     {/* No event links for now */}
