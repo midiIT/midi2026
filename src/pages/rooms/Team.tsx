@@ -15,8 +15,8 @@ const sectionConfig = {
   A: { name: 'MIDI Vadovai', slice: [0, 11] },
   B: { name: 'MIDI Renginių vadovai', slice: [11, 18] },
   C: { name: 'MIDI Komunikacija', slice: [18, 21] },
-  D: { name: 'MIDI LAN Party vadovai', slice: [21, 27] },
-  E: { name: 'MIDI Mentoriai', slice: [27, 30] },
+  D: { name: 'MIDI LAN Party vadovai', slice: [21, 26] },
+  E: { name: 'MIDI Mentoriai', slice: [26, 30] },
 } as const;
 
 function TeamMemberCard({ member }: { member: TeamMember }) {
