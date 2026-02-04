@@ -32,12 +32,15 @@ export default function CollaborationProposal() {
                 background={bck}
                 className="text-black"
             >
-                <div className="h-full flex flex-col px-4">
-                    <h2 className="text-l sm:text-3xl font-bold py-4 text-amber-900 text-center leading-tight flex-shrink-0">
+                <div 
+                    className="flex flex-col justify-between px-4"
+                    style={{ minHeight: '100%' }}
+                >
+                    <h2 className="text-l sm:text-3xl font-bold py-4 text-amber-900 text-center leading-tight">
                         Bendradarbiavimo pasiūlymai
                     </h2>
 
-                    <div className="flex-1 flex flex-col gap-6 items-center justify-center">
+                    <div className="flex flex-col gap-4 items-center">
                         <RoomSign
                             deviceType={deviceType}
                             onClick={() => openPdf('english')}
@@ -56,6 +59,10 @@ export default function CollaborationProposal() {
                             Lietuviškai
                         </RoomSign>
                     </div>
+
+                    <p className="text-sm sm:text-lg text-amber-900 py-4 text-center">
+                        El. paštas: <a href="mailto:marketingas@midi.lt" className="underline hover:text-amber-700">marketingas@midi.lt</a>
+                    </p>
                 </div>
             </RoomContent>
 
