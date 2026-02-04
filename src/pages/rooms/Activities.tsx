@@ -2,8 +2,8 @@ import { useState } from 'react';
 import RoomContent from '../RoomContent';
 import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomSign from '../../components/RoomSign';
-import RoomPC from '../../assets/rooms/activitiesRoomPC.png';
-import RoomMobile from '../../assets/rooms/activitiesRoomMobile.png';
+import RoomPC from '../../assets/rooms/activitiesRoomPC.webp';
+import RoomMobile from '../../assets/rooms/activitiesRoomMobile.webp';
 import eventsData from '../../data/events.json';
 
 export default function Events() {

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import RoomContent from '../RoomContent';
 import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomSign from '../../components/RoomSign';
-import RoomPC from '../../assets/rooms/collaborationRoomPC.png';
-import RoomMobile from '../../assets/rooms/collaborationRoomMobile.png';
+import RoomPC from '../../assets/rooms/collaborationRoomPC.webp';
+import RoomMobile from '../../assets/rooms/collaborationRoomMobile.webp';
 
 const pdfFiles = {
     english: '/2026/MIDI_BP_2026_EN.pdf',

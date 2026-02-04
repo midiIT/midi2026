@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import windowMobile from '../assets/window_mobile.png';
-import windowPC from '../assets/window_pc.png';
+import windowMobile from '../assets/window_mobile.webp';
+import windowPC from '../assets/window_pc.webp';
 
 const screens = {
   es: 360,

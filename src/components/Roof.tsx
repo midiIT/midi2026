@@ -1,4 +1,4 @@
-import roof from '../assets/background/roof.png';
+import roof from '../assets/background/roof.webp';
 
 interface RoofProps {
   roofWidth: number;

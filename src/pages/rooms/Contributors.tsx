@@ -1,7 +1,7 @@
 import RoomContent from '../RoomContent';
 import useResponsiveLayout from '../../hooks/useResponsiveLayout';
-import RoomPC from '../../assets/rooms/contributorsRoomPC.png';
-import RoomMobile from '../../assets/rooms/contributorsRoomMobile.png';
+import RoomPC from '../../assets/rooms/contributorsRoomPC.webp';
+import RoomMobile from '../../assets/rooms/contributorsRoomMobile.webp';
 
 const SponsorTier = {
   diamond: 'diamond',
@@ -24,7 +24,7 @@ const sponsors: Sponsor[] = [
   // Diamond sponsors
   {
     href: 'https://www.vntrading.ai/',
-    src: '/2026/images/sponsors/diamond/vnt.jpg',
+    src: '/2026/images/sponsors/diamond/vnt.webp',
     alt: 'VNTrading',
     tier: SponsorTier.diamond,
   },
@@ -32,7 +32,7 @@ const sponsors: Sponsor[] = [
   // Gold sponsors
   {
     href: 'https://lt.asseco.com/',
-    src: '/2026/images/sponsors/gold/asseco.png',
+    src: '/2026/images/sponsors/gold/asseco.webp',
     alt: 'Asseco',
     tier: SponsorTier.gold,
   },
@@ -40,7 +40,7 @@ const sponsors: Sponsor[] = [
   // Silver sponsors
   {
     href: 'https://www.nasdaq.com/',
-    src: '/2026/images/sponsors/silver/nasdaq.png',
+    src: '/2026/images/sponsors/silver/nasdaq.webp',
     alt: 'Nasdaq',
     tier: SponsorTier.silver,
   },
@@ -48,7 +48,7 @@ const sponsors: Sponsor[] = [
   // Bronze sponsors
   {
     href: 'https://site.adform.com/',
-    src: '/2026/images/sponsors/bronze/adform.png',
+    src: '/2026/images/sponsors/bronze/adform.webp',
     alt: 'AdForm',
     tier: SponsorTier.bronze,
   },
@@ -60,7 +60,7 @@ const sponsors: Sponsor[] = [
   },
   {
     href: 'https://www.westernunion.com/lt/lt/home.html',
-    src: '/2026/images/sponsors/bronze/westernUnion.png',
+    src: '/2026/images/sponsors/bronze/westernUnion.webp',
     alt: 'Western Union',
     tier: SponsorTier.bronze,
   },

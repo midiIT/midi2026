@@ -1,7 +1,7 @@
 import RoomContent from '../RoomContent';
 import useResponsiveLayout from '../../hooks/useResponsiveLayout';
-import RoomPC from '../../assets/rooms/teamRoomPC.png';
-import RoomMobile from '../../assets/rooms/teamRoomMobile.png';
+import RoomPC from '../../assets/rooms/teamRoomPC.webp';
+import RoomMobile from '../../assets/rooms/teamRoomMobile.webp';
 import teamMembers from '../../data/team.json';
 
 interface TeamMember {

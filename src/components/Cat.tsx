@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-import cat1 from "../assets/cat1.png";
-import cat3 from "../assets/cat3.png";
+import cat1 from "../assets/cat1.webp";
+import cat3 from "../assets/cat3.webp";
 import type { DeviceType } from "../hooks/useResponsiveLayout";
 
 interface CatProps {
