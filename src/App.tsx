@@ -4,19 +4,19 @@ import Sky from './components/Sky';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RoomDetail from './pages/RoomDetail';
 
-import ContributorsPC from './assets/rooms/contributorsRoomPC.png';
-import ContributorsMobile from './assets/rooms/contributorsRoomMobile.png';
-import RoSocialsPC from './assets/rooms/roSocialsRoomPC.png'
-import RoSocialsMobile from './assets/rooms/roSocialsRoomMobile.png'
-import ActivitiesPC from './assets/rooms/activitiesRoomPC.png';
-import ActivitiesMobile from './assets/rooms/activitiesRoomMobile.png';
-import CollaborationPC from './assets/rooms/collaborationRoomPC.png';
-import CollaborationMobile from './assets/rooms/collaborationRoomMobile.png';
+import ContributorsPC from './assets/rooms/contributorsRoomPC.webp';
+import ContributorsMobile from './assets/rooms/contributorsRoomMobile.webp';
+import RoSocialsPC from './assets/rooms/roSocialsRoomPC.webp'
+import RoSocialsMobile from './assets/rooms/roSocialsRoomMobile.webp'
+import ActivitiesPC from './assets/rooms/activitiesRoomPC.webp';
+import ActivitiesMobile from './assets/rooms/activitiesRoomMobile.webp';
+import CollaborationPC from './assets/rooms/collaborationRoomPC.webp';
+import CollaborationMobile from './assets/rooms/collaborationRoomMobile.webp';
 
-import MidiSocialsPC from './assets/rooms/midiSocialsRoomPC.png'
-import MidiSocialsMobile from './assets/rooms/midiSocialsRoomMobile.png'
-import TeamPC from './assets/rooms/teamRoomPC.png';
-import TeamMobile from './assets/rooms/teamRoomMobile.png';
+import MidiSocialsPC from './assets/rooms/midiSocialsRoomPC.webp'
+import MidiSocialsMobile from './assets/rooms/midiSocialsRoomMobile.webp'
+import TeamPC from './assets/rooms/teamRoomPC.webp';
+import TeamMobile from './assets/rooms/teamRoomMobile.webp';
 
 
 function App() {

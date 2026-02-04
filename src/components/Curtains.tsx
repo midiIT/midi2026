@@ -1,5 +1,5 @@
 import curtainsOpenAndClose from "../assets/curtains_open_and_close.gif";
-import curtainsOpen from "../assets/curtains.png";
+import curtainsOpen from "../assets/curtains.webp";
 import { useCallback, useEffect, useState } from "react";
 import type { DeviceType } from "../hooks/useResponsiveLayout";
 

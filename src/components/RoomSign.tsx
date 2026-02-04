@@ -1,4 +1,4 @@
-import sign from "../assets/sign.png";
+import sign from "../assets/sign.webp";
 import type { DeviceType } from "../hooks/useResponsiveLayout";
 
 interface RoomSignProps {

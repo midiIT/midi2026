@@ -1,10 +1,10 @@
 import useResponsiveLayout from "../../hooks/useResponsiveLayout";
 import RoomContent from "../RoomContent";
-import RoomPC from '../../assets/rooms/midiSocialsRoomPC.png'
-import RoomMobile from '../../assets/rooms/midiSocialsRoomMobile.png'
-import FacebookIcon from '../../assets/social_icons/facebook.png'
-import InstagramIcon from '../../assets/social_icons/instagram.png'
-import TikTokIcon from '../../assets/social_icons/tiktok.png'
+import RoomPC from '../../assets/rooms/midiSocialsRoomPC.webp'
+import RoomMobile from '../../assets/rooms/midiSocialsRoomMobile.webp'
+import FacebookIcon from '../../assets/social_icons/facebook.webp'
+import InstagramIcon from '../../assets/social_icons/instagram.webp'
+import TikTokIcon from '../../assets/social_icons/tiktok.webp'
 
 export default function SocialMediaMIDI() {
   

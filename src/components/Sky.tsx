@@ -1,5 +1,5 @@
-import moon from '../assets/background/moon.png';
-import stars from '../assets/background/stars.png';
+import moon from '../assets/background/moon.webp';
+import stars from '../assets/background/stars.webp';
 
 export default function Sky() {
   const starPositions = [0, 25, 50, 75];
