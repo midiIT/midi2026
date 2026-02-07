@@ -35,7 +35,7 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
           />
         </div>
       </div>
-      <div className="p-2 sm:p-3 text-center flex flex-col flex-grow">
+      <div className="p-2 text-center flex flex-col flex-grow">
         <h3 className="text-base sm:text-base font-semibold text-amber-900 leading-tight">
           <span className="block">{firstName}</span>
           {surname && <span className="block">{surname}</span>}
