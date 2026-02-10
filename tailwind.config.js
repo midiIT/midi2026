@@ -9,8 +9,7 @@ export default {
         silver: '#9D9D9D',
         bronze: '#CD7F32',
         standard: '#3B82F6',
-        purple: '#c39bd3',
-        partner: '#10B981',
+        partner: '#333333',
       },
       screens: {
         es: '360px',
