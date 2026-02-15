@@ -67,6 +67,12 @@ const sponsors: Sponsor[] = [
 
   // Partners
   {
+    href: 'https://akropolis.lt/'  ,
+    src: '/2026/images/sponsors/partners/akropolis.webp',
+    alt: 'Akropolis',
+    tier: SponsorTier.partner,
+  },
+  {
     href: 'https://www.bonobo.lt/',
     src: '/2026/images/sponsors/partners/bonobo.webp',
     alt: 'Bonobo',
@@ -82,6 +88,18 @@ const sponsors: Sponsor[] = [
     href: 'https://iq.lt/',
     src: '/2026/images/sponsors/partners/iq.webp',
     alt: 'IQ',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://lorenz-snacks.com/naturals',
+    src: '/2026/images/sponsors/partners/naturals.webp',
+    alt: 'Naturals',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://www.ohomanija.lt/',
+    src: '/2026/images/sponsors/partners/oho.webp',
+    alt: 'Oho',
     tier: SponsorTier.partner,
   },
   {
