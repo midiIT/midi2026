@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { calculateTimeLeft, type TimeLeft } from '../utils/timeUtils';
 import type { DeviceType } from '../hooks/useResponsiveLayout';
 
@@ -7,6 +8,7 @@ interface CountdownProps {
 }
 
 export default function Countdown({ deviceType }: CountdownProps) {
+  const { t } = useTranslation();
   const targetDate = import.meta.env.VITE_MIDI_DATE;
 
   const [timeLeft, setTimeLeft] = useState<TimeLeft>(
@@ -26,10 +28,10 @@ export default function Countdown({ deviceType }: CountdownProps) {
   const isMobile = deviceType === 'mobile';
 
   const timeUnits = [
-    { value: timeLeft.days, label: 'Dienos' },
-    { value: timeLeft.hours, label: 'Valandos' },
-    { value: timeLeft.minutes, label: 'Minutės' },
-    { value: timeLeft.seconds, label: 'Sekundės' },
+    { value: timeLeft.days, label: t('countdown.days') },
+    { value: timeLeft.hours, label: t('countdown.hours') },
+    { value: timeLeft.minutes, label: t('countdown.minutes') },
+    { value: timeLeft.seconds, label: t('countdown.seconds') },
   ];
 
   return (
@@ -41,7 +43,7 @@ export default function Countdown({ deviceType }: CountdownProps) {
           textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
         }}
       >
-        IKI MIDI LIKO
+        {t('countdown.title')}
       </div>
 
       <div className={`grid grid-cols-4 ${isMobile ? 'gap-2' : 'gap-6'}`}>

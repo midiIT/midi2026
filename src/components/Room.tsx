@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { DeviceType } from '../hooks/useResponsiveLayout';
 import RoomSign from './RoomSign';
+import { useTranslation } from 'react-i18next';
 
 interface RoomProps {
   children: React.ReactNode;
@@ -19,14 +20,6 @@ interface RoomProps {
   onRoomTap?: (roomId: string) => 'activate' | 'navigate';
 }
 
-const roomMessages: Record<string, string> = {
-  '1': 'Paspausk ant šito kambario ir sužinok apie MIDI veiklas',
-  '2': 'Paspausk ant šito kambario ir sužinok apie MIDI rėmėjus',
-  '3': 'Paspausk ant šito kambario ir sužinok apie MIDI komandą',
-  '4': 'Paspausk ant šito kambario ir sužinok apie MIDI socialinius tinklus',
-  '5': 'Paspausk ant šito kambario ir sužinok apie RO socialinius tinklus',
-  '6': 'Paspausk ant šito kambario ir sužinok apie bendradarbiavimo pasiūlymus',
-};
 
 export default function Room({
   children,
@@ -40,6 +33,7 @@ export default function Room({
   isActive = false,
   onRoomTap,
 }: RoomProps) {
+  const { t } = useTranslation();
   const [refView, inView] = useInView();
   const [isHovered, setIsHovered] = useState(false);
   const navigate = useNavigate();
@@ -173,7 +167,7 @@ export default function Room({
           deviceType={deviceType}
           isVisible={isRoomOpen}
           contentInset={contentInset}
-          message={roomMessages[room?.id ?? ''] || 'Miau!'}
+          message={t(`roomMessages.${room?.id ?? 'default'}`, t('roomMessages.default'))}
           onRoomClick={navigateToRoom}
         />
 

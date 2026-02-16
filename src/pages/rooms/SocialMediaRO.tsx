@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import useResponsiveLayout from "../../hooks/useResponsiveLayout";
 import RoomContent from "../RoomContent";
 import RoomPC from '../../assets/rooms/roSocialsRoomPC.webp'
@@ -7,7 +8,7 @@ import InstagramIcon from '../../assets/social_icons/instagram.webp'
 import TikTokIcon from '../../assets/social_icons/tiktok.webp'
 
 export default function SocialMediaRO() {
-  
+    const { t } = useTranslation();
     const { deviceType } = useResponsiveLayout();
     const bck = deviceType === 'mobile' ? RoomMobile : RoomPC;
 
@@ -16,7 +17,7 @@ export default function SocialMediaRO() {
             background={bck}
             className="text-black text-center"
         >
-            <h2 className="text-2xl font-bold mb-[1.6rem]">RO socialinių tinklų kambarys</h2>
+            <h2 className="text-2xl font-bold mb-[1.6rem]">{t('socialMedia.roTitle')}</h2>
 
             <div className="grid gap-2 grid-cols-1 sm:grid-cols-3 items-center h-[80%]">
                 <a href="https://www.facebook.com/rokooperos/" target="_blank" className="inline-block" rel="noopener noreferrer">

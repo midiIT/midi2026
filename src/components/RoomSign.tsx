@@ -1,5 +1,6 @@
 import sign from "../assets/sign.webp";
 import type { DeviceType } from "../hooks/useResponsiveLayout";
+import { useTranslation } from 'react-i18next';
 
 interface RoomSignProps {
   roomId?: string;
@@ -11,25 +12,17 @@ interface RoomSignProps {
   scale?: number;
 }
 
-const roomNames: Record<string, string> = {
-  '1': 'Veiklos',
-  '2': 'Rėmėjai',
-  '3': 'Komanda',
-  '4': 'MIDI tinklai',
-  '5': 'RO tinklai',
-  '6': 'Bendradarbiavimas',
-};
-
-export default function RoomSign({ 
-  roomId, 
-  deviceType, 
-  onClick, 
+export default function RoomSign({
+  roomId,
+  deviceType,
+  onClick,
   children,
   className = '',
   asButton = false,
   scale = 1,
 }: RoomSignProps) {
-  const name = children || (roomId ? roomNames[roomId] : '') || 'Kambarys';
+  const { t } = useTranslation();
+  const name = children || (roomId ? t(`roomSigns.${roomId}`) : '') || 'Kambarys';
   const isMobile = deviceType === 'mobile';
   const isTablet = deviceType === 'tablet';
 

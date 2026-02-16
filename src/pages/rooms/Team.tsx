@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import RoomContent from '../RoomContent';
 import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomPC from '../../assets/rooms/teamRoomPC.webp';
@@ -7,19 +8,22 @@ import teamMembers from '../../data/team.json';
 interface TeamMember {
   picture: string;
   name: string;
-  position: string;
+  position_lt: string;
+  position_en: string;
   email: string;
 }
 
 const sectionConfig = {
-  A: { name: 'MIDI Vadovai', slice: [0, 11] },
-  B: { name: 'MIDI Renginių vadovai', slice: [11, 18] },
-  C: { name: 'MIDI Komunikacija', slice: [18, 21] },
-  D: { name: 'MIDI LAN Party vadovai', slice: [21, 26] },
-  E: { name: 'MIDI Mentoriai', slice: [26, 30] },
+  A: { nameKey: 'team.sections.leaders', slice: [0, 11] },
+  B: { nameKey: 'team.sections.eventLeaders', slice: [11, 18] },
+  C: { nameKey: 'team.sections.communication', slice: [18, 21] },
+  D: { nameKey: 'team.sections.lanPartyLeaders', slice: [21, 26] },
+  E: { nameKey: 'team.sections.mentors', slice: [26, 30] },
 } as const;
 
 function TeamMemberCard({ member }: { member: TeamMember }) {
+  const { t, i18n } = useTranslation();
+  const position = i18n.language === 'en' ? member.position_en : member.position_lt;
   const nameParts = member.name.split(' ');
   const firstName = nameParts[0];
   const surname = nameParts.slice(1).join(' ');
@@ -41,10 +45,10 @@ function TeamMemberCard({ member }: { member: TeamMember }) {
           {surname && <span className="block">{surname}</span>}
         </h3>
         <p className="text-sm text-amber-700 mt-1">
-          {member.position}
+          {position}
         </p>
         <div className="text-sm text-amber-800 mt-auto pt-2">
-          <span className="font-medium">El. paštas:</span>
+          <span className="font-medium">{t('team.email')}</span>
           <p className="break-all text-sm">
             {member.email}
           </p>
@@ -70,15 +74,16 @@ function TeamSection({ name, members }: { name: string; members: TeamMember[] })
 }
 
 function TeamGrid() {
+  const { t } = useTranslation();
   return (
     <div className="w-full">
       {Object.entries(sectionConfig).map(([key, config]) => {
         const members = teamMembers.slice(config.slice[0], config.slice[1]) as TeamMember[];
         return (
-          <TeamSection 
-            key={key} 
-            name={config.name} 
-            members={members} 
+          <TeamSection
+            key={key}
+            name={t(config.nameKey)}
+            members={members}
           />
         );
       })}
@@ -87,6 +92,7 @@ function TeamGrid() {
 }
 
 export default function Team() {
+  const { t } = useTranslation();
   const { deviceType } = useResponsiveLayout();
   const bck = deviceType === 'mobile' ? RoomMobile : RoomPC;
 
@@ -96,7 +102,7 @@ export default function Team() {
       className="text-amber-900"
     >
       <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6 text-center">
-        MIDI 2026 Komanda
+        {t('team.title')}
       </h1>
       <TeamGrid />
     </RoomContent>

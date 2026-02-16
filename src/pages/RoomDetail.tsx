@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import RoomSign from '../components/RoomSign';
 import useResponsiveLayout from '../hooks/useResponsiveLayout';
 import Activities from './rooms/Activities';
@@ -21,6 +22,7 @@ const roomComponents: Record<string, React.ComponentType> = {
 export default function RoomDetail() {
   const { roomId } = useParams();
   const navigate = useNavigate();
+  const { t } = useTranslation();
   const [isEntering] = useState(true);
   const { deviceType } = useResponsiveLayout();
 
@@ -38,7 +40,7 @@ export default function RoomDetail() {
           onClick={() => navigate('/')}
           asButton
         >
-          ← Atgal į pilį
+          {t('backToCastle')}
         </RoomSign>
       </div>
       <RoomComponent />

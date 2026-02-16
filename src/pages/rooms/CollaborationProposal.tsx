@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import RoomContent from '../RoomContent';
 import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomSign from '../../components/RoomSign';
@@ -11,6 +12,7 @@ const pdfFiles = {
 };
 
 export default function CollaborationProposal() {
+    const { t } = useTranslation();
     const { deviceType } = useResponsiveLayout();
     const bck = deviceType === 'mobile' ? RoomMobile : RoomPC;
     const [showPopup, setShowPopup] = useState(false);
@@ -37,7 +39,7 @@ export default function CollaborationProposal() {
                     style={{ minHeight: '100%' }}
                 >
                     <h2 className="text-l sm:text-3xl font-bold py-4 text-amber-900 text-center leading-tight">
-                        Bendradarbiavimo pasiūlymai
+                        {t('collaboration.title')}
                     </h2>
 
                     <div className="flex flex-col gap-4 items-center">
@@ -47,21 +49,21 @@ export default function CollaborationProposal() {
                             asButton
                             scale={deviceType === "tablet" ? 1.5 : 1}
                         >
-                            English
+                            {t('collaboration.english')}
                         </RoomSign>
-                        
+
                         <RoomSign
                             deviceType={deviceType}
                             onClick={() => openPdf('lietuviskai')}
                             asButton
                             scale={deviceType === "tablet" ? 1.5 : 1}
                         >
-                            Lietuviškai
+                            {t('collaboration.lithuanian')}
                         </RoomSign>
                     </div>
 
                     <p className="text-sm sm:text-lg text-amber-900 py-4 text-center">
-                        El. paštas: <a href="mailto:marketingas@midi.lt" className="underline hover:text-amber-700">marketingas@midi.lt</a>
+                        {t('collaboration.email')} <a href="mailto:marketingas@midi.lt" className="underline hover:text-amber-700">marketingas@midi.lt</a>
                     </p>
                 </div>
             </RoomContent>
@@ -77,7 +79,7 @@ export default function CollaborationProposal() {
                     >
                         <div className="bg-amber-800 text-amber-50 px-6 py-4 border-b-4 border-amber-900 flex justify-between items-center">
                             <h3 className="text-2xl font-bold" style={{ fontFamily: 'serif' }}>
-                                {activePdf === 'english' ? 'English' : 'Lietuviškai'}
+                                {activePdf === 'english' ? t('collaboration.english') : t('collaboration.lithuanian')}
                             </h3>
                             <button 
                                 onClick={closePopup} 
