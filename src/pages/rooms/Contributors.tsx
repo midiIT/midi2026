@@ -9,7 +9,7 @@ const SponsorTier = {
   gold: 'gold',
   silver: 'silver',
   bronze: 'bronze',
-  partners: 'partners',
+  partner: 'partners',
 } as const;
 
 type SponsorTierType = (typeof SponsorTier)[keyof typeof SponsorTier];
@@ -65,6 +65,50 @@ const sponsors: Sponsor[] = [
     alt: 'Western Union',
     tier: SponsorTier.bronze,
   },
+
+  // Partners
+  {
+    href: 'https://akropolis.lt/'  ,
+    src: '/2026/images/sponsors/partners/akropolis.webp',
+    alt: 'Akropolis',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://www.bonobo.lt/',
+    src: '/2026/images/sponsors/partners/bonobo.webp',
+    alt: 'Bonobo',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://www.elmenhorster.lt/',
+    src: '/2026/images/sponsors/partners/elmenhorster.webp',
+    alt: 'Elmenhorster',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://iq.lt/',
+    src: '/2026/images/sponsors/partners/iq.webp',
+    alt: 'IQ',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://lorenz-snacks.com/naturals',
+    src: '/2026/images/sponsors/partners/naturals.webp',
+    alt: 'Naturals',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://www.ohomanija.lt/',
+    src: '/2026/images/sponsors/partners/oho.webp',
+    alt: 'Oho',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://oyakata.lt/',
+    src: '/2026/images/sponsors/partners/oyakata.webp',
+    alt: 'Oyakata',
+    tier: SponsorTier.partner,
+  },
 ];
 
 function SponsorSection({ tier }: { tier: SponsorTierType }) {
@@ -78,7 +122,7 @@ function SponsorSection({ tier }: { tier: SponsorTierType }) {
     [SponsorTier.gold]: t('contributors.gold'),
     [SponsorTier.silver]: t('contributors.silver'),
     [SponsorTier.bronze]: t('contributors.bronze'),
-    [SponsorTier.partners]: t('contributors.partners'),
+    [SponsorTier.partner]: t('contributors.partners'),
   };
 
   const tierClasses = {
@@ -86,15 +130,7 @@ function SponsorSection({ tier }: { tier: SponsorTierType }) {
     [SponsorTier.gold]: 'text-gold border-gold',
     [SponsorTier.silver]: 'text-silver border-silver',
     [SponsorTier.bronze]: 'text-bronze border-bronze',
-    [SponsorTier.partners]: 'text-partners border-partners',
-  };
-
-  const logoSizes = {
-    [SponsorTier.diamond]: 'w-48 h-48',
-    [SponsorTier.gold]: 'w-40 h-40',
-    [SponsorTier.silver]: 'w-36 h-36',
-    [SponsorTier.bronze]: 'w-32 h-32',
-    [SponsorTier.partners]: 'w-28 h-28',
+    [SponsorTier.partner]: 'text-partner border-partner',
   };
 
   return (
@@ -109,19 +145,19 @@ function SponsorSection({ tier }: { tier: SponsorTierType }) {
         <div className={`border-t-2 ${tierClasses[tier]} flex-grow mx-2`}></div>
       </div>
 
-      <div className="flex flex-wrap gap-4 justify-center">
+      <div className="flex flex-wrap gap-4 justify-center items-center">
         {filteredSponsors.map((sponsor, index) => (
           <a
             key={index}
             href={sponsor.href}
             target="_blank"
             rel="noopener noreferrer"
-            className="transition duration-300 ease-in-out hover:opacity-80"
+            className="w-36 h-36 flex items-center justify-center transition duration-300 ease-in-out hover:opacity-80"
           >
             <img
               src={sponsor.src}
               alt={sponsor.alt}
-              className={`${logoSizes[tier]} object-contain`}
+              className="max-w-full max-h-full object-contain"
             />
           </a>
         ))}
