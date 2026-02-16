@@ -1,3 +1,4 @@
+import { useTranslation } from 'react-i18next';
 import RoomContent from '../RoomContent';
 import useResponsiveLayout from '../../hooks/useResponsiveLayout';
 import RoomPC from '../../assets/rooms/contributorsRoomPC.webp';
@@ -67,16 +68,17 @@ const sponsors: Sponsor[] = [
 ];
 
 function SponsorSection({ tier }: { tier: SponsorTierType }) {
+  const { t } = useTranslation();
   const filteredSponsors = sponsors.filter((sponsor) => sponsor.tier === tier);
 
   if (filteredSponsors.length === 0) return null;
 
   const tierTitles = {
-    [SponsorTier.diamond]: 'Deimantiniai rėmėjai',
-    [SponsorTier.gold]: 'Auksiniai rėmėjai',
-    [SponsorTier.silver]: 'Sidabriniai rėmėjai',
-    [SponsorTier.bronze]: 'Bronziniai rėmėjai',
-    [SponsorTier.partners]: 'Partneriai',
+    [SponsorTier.diamond]: t('contributors.diamond'),
+    [SponsorTier.gold]: t('contributors.gold'),
+    [SponsorTier.silver]: t('contributors.silver'),
+    [SponsorTier.bronze]: t('contributors.bronze'),
+    [SponsorTier.partners]: t('contributors.partners'),
   };
 
   const tierClasses = {
@@ -129,10 +131,11 @@ function SponsorSection({ tier }: { tier: SponsorTierType }) {
 }
 
 function SponsorsContent() {
+  const { t } = useTranslation();
   return (
     <div className="py-4">
       <h1 className="text-2xl sm:text-3xl font-bold mb-6 text-center text-amber-900">
-        Mūsų rėmėjai
+        {t('contributors.title')}
       </h1>
       {Object.values(SponsorTier).map((tier) => (
         <SponsorSection key={tier} tier={tier} />

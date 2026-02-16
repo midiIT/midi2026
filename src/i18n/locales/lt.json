@@ -1,0 +1,70 @@
+{
+  "countdown": {
+    "title": "IKI MIDI LIKO",
+    "days": "Dienos",
+    "hours": "Valandos",
+    "minutes": "Minutės",
+    "seconds": "Sekundės"
+  },
+  "rooms": {
+    "activities": "Veiklų kambarys",
+    "contributors": "Rėmėjų kambarys",
+    "team": "Komandos kambarys",
+    "midiSocials": "MIDI socialinių tinklų kambarys",
+    "roSocials": "RO socialinių tinklų kambarys",
+    "collaboration": "Bendradarbiavimo pasiūlymų kambarys"
+  },
+  "roomSigns": {
+    "1": "Veiklos",
+    "2": "Rėmėjai",
+    "3": "Komanda",
+    "4": "MIDI tinklai",
+    "5": "RO tinklai",
+    "6": "Bendradarbiavimas"
+  },
+  "backToCastle": "← Atgal į pilį",
+  "activities": {
+    "back": "Atgal",
+    "next": "Tolyn",
+    "of": "iš",
+    "eventLink": "Nuoroda į renginį"
+  },
+  "contributors": {
+    "title": "Mūsų rėmėjai",
+    "diamond": "Deimantiniai rėmėjai",
+    "gold": "Auksiniai rėmėjai",
+    "silver": "Sidabriniai rėmėjai",
+    "bronze": "Bronziniai rėmėjai",
+    "partners": "Partneriai"
+  },
+  "team": {
+    "title": "MIDI 2026 Komanda",
+    "email": "El. paštas:",
+    "sections": {
+      "leaders": "MIDI Vadovai",
+      "eventLeaders": "MIDI Renginių vadovai",
+      "communication": "MIDI Komunikacija",
+      "lanPartyLeaders": "MIDI LAN Party vadovai",
+      "mentors": "MIDI Mentoriai"
+    }
+  },
+  "socialMedia": {
+    "midiTitle": "MIDI socialinių tinklų kambarys",
+    "roTitle": "RO socialinių tinklų kambarys"
+  },
+  "roomMessages": {
+    "1": "Paspausk ant šito kambario ir sužinok apie MIDI veiklas",
+    "2": "Paspausk ant šito kambario ir sužinok apie MIDI rėmėjus",
+    "3": "Paspausk ant šito kambario ir sužinok apie MIDI komandą",
+    "4": "Paspausk ant šito kambario ir sužinok apie MIDI socialinius tinklus",
+    "5": "Paspausk ant šito kambario ir sužinok apie RO socialinius tinklus",
+    "6": "Paspausk ant šito kambario ir sužinok apie bendradarbiavimo pasiūlymus",
+    "default": "Miau!"
+  },
+  "collaboration": {
+    "title": "Bendradarbiavimo pasiūlymai",
+    "english": "English",
+    "lithuanian": "Lietuviškai",
+    "email": "El. paštas:"
+  }
+}

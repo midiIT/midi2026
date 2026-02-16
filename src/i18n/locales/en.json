@@ -1,0 +1,70 @@
+{
+  "countdown": {
+    "title": "TIME TILL MIDI",
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds"
+  },
+  "rooms": {
+    "activities": "Activities room",
+    "contributors": "Sponsors room",
+    "team": "Team room",
+    "midiSocials": "MIDI social medias room",
+    "roSocials": "RO social medias room",
+    "collaboration": "Collaboration proposal room"
+  },
+  "roomSigns": {
+    "1": "Activities",
+    "2": "Sponsors",
+    "3": "Team",
+    "4": "MIDI medias",
+    "5": "RO medias",
+    "6": "Collaborations"
+  },
+  "backToCastle": "← Back to castle",
+  "activities": {
+    "back": "Back",
+    "next": "Next",
+    "of": "of",
+    "eventLink": "Link to activity"
+  },
+  "contributors": {
+    "title": "Our Sponsors",
+    "diamond": "Diamond Sponsors",
+    "gold": "Gold Sponsors",
+    "silver": "Silver Sponsors",
+    "bronze": "Bronze Sponsors",
+    "partners": "Partners"
+  },
+  "team": {
+    "title": "MIDI 2026 Team",
+    "email": "Email: ",
+    "sections": {
+      "leaders": "MIDI Main Team",
+      "eventLeaders": "MIDI Event Leaders",
+      "communication": "MIDI Communication Team",
+      "lanPartyLeaders": "MIDI LAN Party Leaders",
+      "mentors": "MIDI mentors"
+    }
+  },
+  "socialMedia": {
+    "midiTitle": "MIDI social media room",
+    "roTitle": "RO social media room"
+  },
+  "roomMessages": {
+    "1": "Click on this room to learn about MIDI activities",
+    "2": "Click on this room to learn about MIDI sponsors",
+    "3": "Click on this room to learn about the MIDI team",
+    "4": "Click on this room to learn about MIDI social media",
+    "5": "Click on this room to learn about RO social media",
+    "6": "Click on this room to learn about collaboration proposals",
+    "default": "Meow!"
+  },
+  "collaboration": {
+    "title": "Collaboration proposals",
+    "english": "English",
+    "lithuanian": "Lietuviškai",
+    "email": "Email: "
+  }
+}

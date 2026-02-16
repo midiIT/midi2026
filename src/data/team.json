@@ -2,175 +2,204 @@
   {
     "picture": "/2026/images/team/Saule Gylyte.webp",
     "name": "Saule Gylyte",
-    "position": "MIDI 2026 vadovė",
+    "position_lt": "MIDI 2026 vadovė",
+    "position_en": "MIDI 2026 Leader",
     "email": "vadovas@midi.lt"
   },
   {
     "picture": "/2026/images/team/Emilija Abromaitytė.webp",
     "name": "Emilija Abromaitytė",
-    "position": "Žmogiškųjų išteklių vadovė",
+    "position_lt": "Žmogiškųjų išteklių vadovė",
+    "position_en": "Human Resources Leader",
     "email": "hr@midi.lt"
   },
   {
     "picture": "/2026/images/team/Artūras Semenčiuk.webp",
     "name": "Artūras Semenčiuk",
-    "position": "LAN Party vadovas",
+    "position_lt": "LAN Party vadovas",
+    "position_en": "LAN Party Leader",
     "email": "lan@midi.lt"
   },
   {
     "picture": "/2026/images/team/Domas Klimavičius.webp",
     "name": "Domas Klimavičius",
-    "position": "Organizacinės srities vadovas",
+    "position_lt": "Organizacinės srities vadovas",
+    "position_en": "Organizational Area Leader",
     "email": "org@midi.lt"
   },
   {
     "picture": "/2026/images/team/Emilė Kavaliauskaitė.webp",
     "name": "Emilė Kavaliauskaitė",
-    "position": "Organizacinės srities vadovė",
+    "position_lt": "Organizacinės srities vadovė",
+    "position_en": "Organizational Area Leader",
     "email": "org@midi.lt"
   },
   {
     "picture": "/2026/images/team/Gabija Kondrataitė.webp",
     "name": "Gabija Kondrataitė",
-    "position": "Komunikacijos vadovė",
+    "position_lt": "Komunikacijos vadovė",
+    "position_en": "Communication Leader",
     "email": "info@midi.lt"
   },
   {
     "picture": "/2026/images/team/Gabrielė Každailytė.webp",
     "name": "Gabrielė Každailytė",
-    "position": "Barterinių rėmėjų vadovė",
+    "position_lt": "Barterinių rėmėjų vadovė",
+    "position_en": "Barter Sponsors Leader",
     "email": "reklama@midi.lt"
   },
   {
     "picture": "/2026/images/team/Justinas Pranaitis.webp",
     "name": "Justinas Pranaitis",
-    "position": "IT srities vadovas",
+    "position_lt": "IT srities vadovas",
+    "position_en": "IT Area Leader",
     "email": "it@midi.lt"
   },
   {
     "picture": "/2026/images/team/Palmyra Malinauskaitė.webp",
     "name": "Palmyra Malinauskaitė",
-    "position": "Administratorė",
+    "position_lt": "Administratorė",
+    "position_en": "Administrator",
     "email": "admin@midi.lt"
   },
   {
     "picture": "/2026/images/team/Roberta Jurpalytė.webp",
     "name": "Roberta Jurpalytė",
-    "position": "Roko Operos vadovė",
+    "position_lt": "Roko Operos vadovė",
+    "position_en": "Rock Opera Leader",
     "email": "ro.vadovas@midi.lt"
   },
   {
     "picture": "/2026/images/team/Vėjūnė Kamienaitė.webp",
     "name": "Vėjūnė Kamienaitė",
-    "position": "Marketingo vadovė",
+    "position_lt": "Marketingo vadovė",
+    "position_en": "Marketing Leader",
     "email": "marketingas@midi.lt"
   },
   {
     "picture": "/2026/images/team/Augustė Tumaitė.webp",
     "name": "Augustė Tumaitė",
-    "position": "Uždarymo vakaro vadovė",
+    "position_lt": "Uždarymo vakaro vadovė",
+    "position_en": "Closing Party Leader",
     "email": "uzdarymas@midi.lt"
   },
   {
     "picture": "/2026/images/team/Daniel Simonian.webp",
     "name": "Daniel Simonian",
-    "position": "Tinklinio ir kvadrato turnyrų vadovas",
+    "position_lt": "Tinklinio ir kvadrato turnyrų vadovas",
+    "position_en": "Volleyball & Dodgeball Tournaments Leader",
     "email": "sportodiena@midi.lt"
   },
   {
     "picture": "/2026/images/team/Joris Unikas.webp",
     "name": "Joris Unikas",
-    "position": "Krepšinio ir futbolo turnyrų vadovas",
+    "position_lt": "Krepšinio ir futbolo turnyrų vadovas",
+    "position_en": "Basketball & Football Tournaments Leader",
     "email": "sportas@midi.lt"
   },
   {
     "picture": "/2026/images/team/Kasparas Stakeliūnas.webp",
     "name": "Kasparas Stakeliūnas",
-    "position": "Biliardo turnyro vadovas",
+    "position_lt": "Biliardo turnyro vadovas",
+    "position_en": "Billiards Tournament Leader",
     "email": "biliardas@midi.lt"
   },
   {
     "picture": "/2026/images/team/Matas Povilaitis.webp",
     "name": "Matas Povilaitis",
-    "position": "Protmūšio vadovas",
+    "position_lt": "Protmūšio vadovas",
+    "position_en": "Quiz Leader",
     "email": "protmusis@midi.lt"
   },
   {
     "picture": "/2026/images/team/Mykolas Liandzbergas.webp",
     "name": "Mykolas Liandzbergas",
-    "position": "Šachmatų turnyrų vadovas",
+    "position_lt": "Šachmatų turnyrų vadovas",
+    "position_en": "Chess Tournament Leader",
     "email": "sachmatai@midi.lt"
   },
   {
     "picture": "/2026/images/team/Vėjūnė Kamienaitė.webp",
     "name": "Vėjūnė Kamienaitė",
-    "position": "Įmonių mugės vadovė",
+    "position_lt": "Įmonių mugės vadovė",
+    "position_en": "Company Fair Leader",
     "email": "marketingas@midi.lt"
   },
   {
     "picture": "/2026/images/team/Jakub Rogoža.webp",
     "name": "Jakub Rogoža",
-    "position": "Video vadovas",
+    "position_lt": "Video vadovas",
+    "position_en": "Video Leader",
     "email": "video@midi.lt"
   },
   {
     "picture": "/2026/images/team/Patricija Galdikaitė.webp",
     "name": "Patricija Galdikaitė",
-    "position": "Dizaino srities vadovė",
+    "position_lt": "Dizaino srities vadovė",
+    "position_en": "Design Area Leader",
     "email": "dizainas@midi.lt"
   },
   {
     "picture": "/2026/images/team/Paulina Jucevičiūtė.webp",
     "name": "Paulina Jucevičiūtė",
-    "position": "Press vadovė",
+    "position_lt": "Press vadovė",
+    "position_en": "Press Leader",
     "email": "press@midi.lt"
   },
   {
     "picture": "/2026/images/team/Arijus Lingė.webp",
     "name": "Arijus Lingė",
-    "position": "Didžiųjų turnyrų vadovas",
+    "position_lt": "Didžiųjų turnyrų vadovas",
+    "position_en": "Major Tournaments Leader",
     "email": "lan.turnyrai@midi.lt"
   },
   {
     "picture": "/2026/images/team/Julius Beinortas.webp",
     "name": "Julius Beinortas",
-    "position": "Didžiųjų turnyrų vadovas",
+    "position_lt": "Didžiųjų turnyrų vadovas",
+    "position_en": "Major Tournaments Leader",
     "email": "lan.turnyrai@midi.lt"
   },
   {
     "picture": "/2026/images/team/Augustas Kniška.webp",
     "name": "Augustas Kniška",
-    "position": "Stream vadovas",
+    "position_lt": "Stream vadovas",
+    "position_en": "Stream Leader",
     "email": "stream@midi.lt"
   },
   {
     "picture": "/2026/images/team/Mindaugas Tolušis.webp",
     "name": "Mindaugas Tolušis",
-    "position": "Discord vadovas",
+    "position_lt": "Discord vadovas",
+    "position_en": "Discord Leader",
     "email": "discord@midi.lt"
   },
   {
     "picture": "/2026/images/team/Šarūnas Gikys.webp",
     "name": "Šarūnas Gikys",
-    "position": "Mažųjų turnyrų vadovas",
+    "position_lt": "Mažųjų turnyrų vadovas",
+    "position_en": "Minor Tournaments Leader",
     "email": "lan.turnyrai@midi.lt"
   },
   {
     "picture": "/2026/images/team/Ričardas Čubukinas.webp",
     "name": "Ričardas Čubukinas",
-    "position": "LAN mentorius",
+    "position_lt": "LAN mentorius",
+    "position_en": "LAN Mentor",
     "email": "lan@midi.lt"
   },
   {
     "picture": "/2026/images/team/Gytis Mockevičius.webp",
     "name": "Gytis Mockevičius",
-    "position": "LAN mentorius",
+    "position_lt": "LAN mentorius",
+    "position_en": "LAN Mentor",
     "email": "lan@midi.lt"
   },
   {
     "picture": "/2026/images/team/Lukas Jakonis.webp",
     "name": "Lukas Jakonis",
-    "position": "Komunikacijos mentorius",
+    "position_lt": "Komunikacijos mentorius",
+    "position_en": "Communication Mentor",
     "email": "info@midi.lt"
   }
 ]

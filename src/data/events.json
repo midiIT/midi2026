@@ -1,68 +1,90 @@
 [
-    {
-        "date": "Balandžio 16, 2026",
-        "title": "Protmūšis",
-        "description": "Užuominų pilis ši sklidina. Raktų tik niekaip nėra. Kas kitas, jeigu ne Tu, išnarpliot visas mįsles ir užuominas sugebės? MIDI 2026 Protmūšis tai vieta kur susijungia žinios, atsakymai ir smalsumas į vieną vietą ir atveria duris drąsiems į nepakartojamą prizų ir gerų emocijų pilį.",
-        "link": "https://example.com/medieval-fair"
-    },
-    {
-        "date": "Balandžio 17, 2026",
-        "title": "Kvadrato turnyras",
-        "description": "Keturi kampai, visus suskaičiavai? Tik drąsiems, tik akyliems, judriems ir aktyviems. MIDI kviečia Tave, aktyvusis studente, į MIDI 2026 Kvadrato turnyrą sužibėti ir smagiai praleisti laiką.",
-        "link": "https://example.com/guest-lecture"
-    },
-    {
-        "date": "Balandžio 18, 2026",
-        "title": "Šachmatų turnyras",
-        "description": "Arklius pakinkius, rikius išrikiavus. Mus laukia mūšis šis ypatingas, žinok jis bus įspūdingas. Kur baigiasi legenda ir prasideda tradicija. Dvi spalvos susitinka, kad padarytų istoriją. MIDI 2026 Šachmatų turnyras laukia Tavęs, nepriklausomai ar esi pradedantysis ar jau daug kovų laimėjęs meistras.",
-        "link": "https://example.com/spring-festival"
-    },
-    {
-        "date": "Balandžio 18-19, 2026",
-        "title": "LAN party",
-        "description": "Nors ir netikri, ekrane tik praminti. Bet šarvai tavo, rūstumo sklidini. Ar išdrįsi stoti į šią skaitmeninę kovą ir pagriebus savo drąsos kalaviją bei ištikimą komandą, įveikti priešininkus ir iškeliauti su pergalės karūna? MIDI nekantriai laukia visų tipų žaidimų entuziastų MIDI LAN 2026 Party. Neleisk šarvams dulkėti ir išdrįsk žengti į šią kovą.",
-        "link": "https://example.com/honors-ceremony"
-    },
-    {
-        "date": "Balandžio 19, 2026",
-        "title": "Krepšinio turnyras",
-        "description": "Žinias nešti jie turėjo, saugoti ir ginti rankraštį kiekvieną. Nešti Tau šiandieną, kamuolį auksinį gali tekti, iškovoti pergalę garbingą. Ar jau pasiruošei MIDI 2026 Krepšiniui ir nusiteikei atiduoti save visą šiai pergalei garbingai?",
-        "link": "https://example.com/graduation-week"
-    },
-    {
-        "date": "Balandžio 20, 2026",
-        "title": "Įmonių mugė",
-        "description": "Klaidžiojo miškais, giriom ir pievom. Ieškojo jie atsakymų, rodyklių ten daugiau. Ir surado žemėlapius čia pagaliau. Kasmet vykstanti MIDI 2026 Įmonių mugė, tai puiki galybė atrasti savo kryptį, susipažinti ne tik su legendomis, bet užmesti akį į ateities prošvaistes.",
-        "link": "https://example.com/graduation-week"
-    },
-    {
-        "date": "Balandžio 21, 2026",
-        "title": "Futbolo turnyras",
-        "description": "Juoda balta. Šventė pergalė, pralaimėjimas kova. Bet svarbiausia geras laikas čia. MIDI 2026 Futbolas yra paruošęs Tau kupiną adrenalino ir smagaus nusiteikimo renginį kurio negali praleisti joks futbolo entuziastas.",
-        "link": "https://example.com/graduation-week"
-    },
-    {
-        "date": "Balandžio 21, 2026",
-        "title": "Tinklinio turnyras",
-        "description": "Skiria mus šis tinklas, kokiomis legendomis jis čia išpintas? Metą kamuolį visi, lyg iššūkį jį priimi. MIDI 2026 Tinklinio varžybos laukia Tavęs aktyviam ir smagiam laikui praleisti drauge šioje pasakų užuomazgoje.",
-        "link": "https://example.com/graduation-week"
-    },
-    {
-        "date": "Balandžio 22, 2026",
-        "title": "Biliardo turnyras",
-        "description": "Daug legendų ten girdėta, visa tai jau paminėta. Rieda vienas, rieda du, ar jauti kokiu kampu? Nusitaikius šūvį tikslų, nugalėta daug ten priešų. MIDI 2026 Biliardas laukia Tavęs kupinas iššūkių ir smagių akimirkų kurių neužmirši ilgai.",
-        "link": "https://example.com/graduation-week"
-    },
-    {
-        "date": "Balandžio 23, 2026",
-        "title": "Roko Opera",
-        "description": "Uždanga kyla, bet ar esi pasiruošęs tam, kas slypi šešėliuose? MIDI Roko Opera 2026 kviečia į naują, garsų ir šviesų pripildytą patirtį. Tai ne tik pasirodymas, tai gyvo garso, veržlaus šokio ir gilių emocijų sūkurys, kuriame riba tarp realybės ir scenos iliuzijos išnyksta. Ar išdrįsi pažvelgti tiesai į akis, kai muzika taps tavo vieninteliu gidu?",
-        "link": "https://example.com/graduation-week"
-    },
-    {
-        "date": "Balandžio 24, 2026",
-        "title": "Uždarymo vakaras",
-        "description": "Paskutiniai žingsniai, ar jauti? Viską nugalėjus, pergalę savo Tu neši. Per savaitę visą daug čia jau nuveikta, reikia kelt mums puotą. Palydėkime šią savaitę, kupiną intensyvių emocijų ir įvairių patirčių susitikdami MIDI 2026 Uždarymo vakare, kur sklindant muzikai ir juokui, pasibūsim ir atšvęsim pergalę čia savą.",
-        "link": "https://example.com/graduation-week"
-    }
+  {
+    "date_lt": "Balandžio 16, 2026",
+    "date_en": "April 16, 2026",
+    "title_lt": "Protmūšis",
+    "title_en": "Quiz",
+    "description_lt": "Užuominų pilis ši sklidina. Raktų tik niekaip nėra. Kas kitas, jeigu ne Tu, išnarpliot visas mįsles ir užuominas sugebės? MIDI 2026 Protmūšis tai vieta kur susijungia žinios, atsakymai ir smalsumas į vieną vietą ir atveria duris drąsiems į nepakartojamą prizų ir gerų emocijų pilį.",
+    "description_en": "The clues have spread throughout castle. Keys are nowhere to be found. Who else, if not you, will be able to unravel all the riddles and clues? MIDI 2026 Quiz Night is a place where knowledge, answers and curiosity come together in one place and open the door for the courageous to a unique castle of prizes and good emotions."
+  },
+  {
+    "date_lt": "Balandžio 17, 2026",
+    "date_en": "April 17, 2026",
+    "title_lt": "Kvadrato turnyras",
+    "title_en": "Dodgeball Tournament",
+    "description_lt": "Keturi kampai, visus suskaičiavai? Tik drąsiems, tik akyliems, judriems ir aktyviems. MIDI kviečia Tave, aktyvusis studente, į MIDI 2026 Kvadrato turnyrą sužibėti ir smagiai praleisti laiką.",
+    "description_en": "Four corners, have you counted them all? Only for the brave, only for the vigilant, agile and active. MIDI invites you, a vibrant student, to the MIDI 2026 Square Tournament to shine and have a great time."
+  },
+  {
+    "date_lt": "Balandžio 18, 2026",
+    "date_en": "April 18, 2026",
+    "title_lt": "Šachmatų turnyras",
+    "title_en": "Chess Tournament",
+    "description_lt": "Arklius pakinkius, rikius išrikiavus. Mus laukia mūšis šis ypatingas, žinok jis bus įspūdingas. Kur baigiasi legenda ir prasideda tradicija. Dvi spalvos susitinka, kad padarytų istoriją. MIDI 2026 Šachmatų turnyras laukia Tavęs, nepriklausomai ar esi pradedantysis ar jau daug kovų laimėjęs meistras.",
+    "description_en": "The horses are harnessed, the bishops are lined up. This extraordinary battle awaits us, just know that it will be spectacular. Where the legend ends and the tradition begins. Two colors meet to make history. MIDI 2026 Chess Tournament awaits you, regardless of whether you are a beginner or a master who has already won many battles."
+  },
+  {
+    "date_lt": "Balandžio 18-19, 2026",
+    "date_en": "April 18-19, 2026",
+    "title_lt": "LAN party",
+    "title_en": "LAN Party",
+    "description_lt": "Nors ir netikri, ekrane tik praminti. Bet šarvai tavo, rūstumo sklidini. Ar išdrįsi stoti į šią skaitmeninę kovą ir pagriebus savo drąsos kalaviją bei ištikimą komandą, įveikti priešininkus ir iškeliauti su pergalės karūna? MIDI nekantriai laukia visų tipų žaidimų entuziastų MIDI LAN 2026 Party. Neleisk šarvams dulkėti ir išdrįsk žengti į šią kovą.",
+    "description_en": "Although not real, made up on screen. But the armor is yours, you radiate fury. Do you dare to enter this digital battle and, grabbing your sword of courage and a loyal team, defeat your opponents and leave with the crown of victory? MIDI is eagerly waiting for all types of gaming enthusiasts in the MIDI LAN 2026 Party. Don't let your armor gather dust and dare to march into this fight."
+  },
+  {
+    "date_lt": "Balandžio 19, 2026",
+    "date_en": "April 19, 2026",
+    "title_lt": "Krepšinio turnyras",
+    "title_en": "Basketball Tournament",
+    "description_lt": "Žinias nešti jie turėjo, saugoti ir ginti rankraštį kiekvieną. Nešti Tau šiandieną, kamuolį auksinį gali tekti, iškovoti pergalę garbingą. Ar jau pasiruošei MIDI 2026 Krepšiniui ir nusiteikei atiduoti save visą šiai pergalei garbingai?",
+    "description_en": "They had to carry the messages, protect and defend each manuscript. You may have to carry the golden ball today, to win an honorable victory. Have you already prepared for MIDI 2026 Basketball and are you determined to give yourself all to this honorable victory?"
+  },
+  {
+    "date_lt": "Balandžio 20, 2026",
+    "date_en": "April 20, 2026",
+    "title_lt": "Įmonių mugė",
+    "title_en": "Company Fair",
+    "description_lt": "Klaidžiojo miškais, giriom ir pievom. Ieškojo jie atsakymų, rodyklių ten daugiau. Ir surado žemėlapius čia pagaliau. Kasmet vykstanti MIDI 2026 Įmonių mugė, tai puiki galybė atrasti savo kryptį, susipažinti ne tik su legendomis, bet užmesti akį į ateities prošvaistes.",
+    "description_en": "Wandered through forests, groves and grasslands. They were looking for answers, there were more arrows there. And they finally discovered maps here. The annual MIDI 2026 Company Fair is an excellent opportunity to find your direction, get acquainted not only with legends, but also to cast a glance at the glimmers of the future."
+  },
+  {
+    "date_lt": "Balandžio 21, 2026",
+    "date_en": "April 21, 2026",
+    "title_lt": "Futbolo turnyras",
+    "title_en": "Soccer Tournament",
+    "description_lt": "Juoda balta. Šventė pergalė, pralaimėjimas kova. Bet svarbiausia geras laikas čia. MIDI 2026 Futbolas yra paruošęs Tau kupiną adrenalino ir smagaus nusiteikimo renginį kurio negali praleisti joks futbolo entuziastas.",
+    "description_en": "Black and white. Victory is a celebration, defeat is a struggle. But the most important thing is a good time here. MIDI 2026 Soccer has prepared for you an event full of adrenaline and enjoyment that no soccer enthusiast can miss."
+  },
+  {
+    "date_lt": "Balandžio 21, 2026",
+    "date_en": "April 21, 2026",
+    "title_lt": "Tinklinio turnyras",
+    "title_en": "Volleyball Tournament",
+    "description_lt": "Skiria mus šis tinklas, kokiomis legendomis jis čia išpintas? Metą kamuolį visi, lyg iššūkį jį priimi. MIDI 2026 Tinklinio varžybos laukia Tavęs aktyviam ir smagiam laikui praleisti drauge šioje pasakų užuomazgoje.",
+    "description_en": "This net separates us, what legends are woven into it? Everyone throws the ball, accepting it as a challenge. MIDI 2026 Volleyball Competition awaits you to spend an active and cheerful time together in this fairy tale setting."
+  },
+  {
+    "date_lt": "Balandžio 22, 2026",
+    "date_en": "April 22, 2026",
+    "title_lt": "Biliardo turnyras",
+    "title_en": "Billiard Tournament",
+    "description_lt": "Daug legendų ten girdėta, visa tai jau paminėta. Rieda vienas, rieda du, ar jauti kokiu kampu? Nusitaikius šūvį tikslų, nugalėta daug ten priešų. MIDI 2026 Biliardas laukia Tavęs kupinas iššūkių ir smagių akimirkų kurių neužmirši ilgai.",
+    "description_en": "Many legends have been heard there, all of this has already been mentioned. Rolls one, rolls two, do you feel at what angle? By aiming a shot at the target, many enemies have been defeated there. MIDI 2026 Billiard awaits you full of challenges and enjoyable moments that you will not forget for a long time."
+  },
+  {
+    "date_lt": "Balandžio 23, 2026",
+    "date_en": "April 23, 2026",
+    "title_lt": "Roko Opera",
+    "title_en": "Rock Opera",
+    "description_lt": "Uždanga kyla, bet ar esi pasiruošęs tam, kas slypi šešėliuose? MIDI Roko Opera 2026 kviečia į naują, garsų ir šviesų pripildytą patirtį. Tai ne tik pasirodymas, tai gyvo garso, veržlaus šokio ir gilių emocijų sūkurys, kuriame riba tarp realybės ir scenos iliuzijos išnyksta. Ar išdrįsi pažvelgti tiesai į akis, kai muzika taps tavo vieninteliu gidu?",
+    "description_en": "The veil is rising, but are you ready for what lies in the shadows? MIDI Rock Opera 2026 invites you to a new experience, filled with sound and light. It is not just a performance, it is a whirlwind of live sound, dashing dance and deep emotions, in which the line between reality and the illusion of the stage disappears. Will you dare to look the truth in the eye when music becomes your only guide?"
+  },
+  {
+    "date_lt": "Balandžio 24, 2026",
+    "date_en": "April 24, 2026",
+    "title_lt": "Uždarymo vakaras",
+    "title_en": "Closing Party",
+    "description_lt": "Paskutiniai žingsniai, ar jauti? Viską nugalėjus, pergalę savo Tu neši. Per savaitę visą daug čia jau nuveikta, reikia kelt mums puotą. Palydėkime šią savaitę, kupiną intensyvių emocijų ir įvairių patirčių susitikdami MIDI 2026 Uždarymo vakare, kur sklindant muzikai ir juokui, pasibūsim ir atšvęsim pergalę čia savą.",
+    "description_en": "The last steps, do you feel it? Having conquered everything, you carry the victory with You. A lot has already been accomplished here during the week, we need to throw a feast for us. Let's accompany this week, full of intense emotions and various experiences, by meeting at the MIDI 2026 Closing Evening, where, with music and laughter, we will hang out and commemorate our victory here."
+  }
 ]
