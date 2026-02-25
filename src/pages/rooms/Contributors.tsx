@@ -9,6 +9,7 @@ const SponsorTier = {
   gold: 'gold',
   silver: 'silver',
   bronze: 'bronze',
+  lanSponsor: 'lanSponsors',
   partner: 'partners',
 } as const;
 
@@ -64,6 +65,14 @@ const sponsors: Sponsor[] = [
     src: '/2026/images/sponsors/bronze/westernUnion.webp',
     alt: 'Western Union',
     tier: SponsorTier.bronze,
+  },
+
+  // LAN Sponsors
+  {
+    href: 'https://www.toppc.lt/',
+    src: '/2026/images/sponsors/lanSponsors/toppc.svg',
+    alt: 'TopPC',
+    tier: SponsorTier.lanSponsor,
   },
 
   // Partners
@@ -122,6 +131,7 @@ function SponsorSection({ tier }: { tier: SponsorTierType }) {
     [SponsorTier.gold]: t('contributors.gold'),
     [SponsorTier.silver]: t('contributors.silver'),
     [SponsorTier.bronze]: t('contributors.bronze'),
+    [SponsorTier.lanSponsor]: t('contributors.lanSponsors'),
     [SponsorTier.partner]: t('contributors.partners'),
   };
 
@@ -130,6 +140,7 @@ function SponsorSection({ tier }: { tier: SponsorTierType }) {
     [SponsorTier.gold]: 'text-gold border-gold',
     [SponsorTier.silver]: 'text-silver border-silver',
     [SponsorTier.bronze]: 'text-bronze border-bronze',
+    [SponsorTier.lanSponsor]: 'text-lanSponsor border-lanSponsor',
     [SponsorTier.partner]: 'text-partner border-partner',
   };
 
