@@ -74,6 +74,12 @@ const sponsors: Sponsor[] = [
     alt: 'TopPC',
     tier: SponsorTier.lanSponsor,
   },
+  {
+    href: 'https://www.eset.com/lt/',
+    src: '/2026/images/sponsors/lanSponsors/eset.webp',
+    alt: 'ESET',
+    tier: SponsorTier.lanSponsor,
+  },
 
   // Partners
   {
