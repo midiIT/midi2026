@@ -124,6 +124,30 @@ const sponsors: Sponsor[] = [
     alt: 'Oyakata',
     tier: SponsorTier.partner,
   },
+  {
+    href: 'https://bagsandmore.lt/',
+    src: '/2026/images/sponsors/partners/bags_and_more.webp',
+    alt: 'Bags and More',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://www.budrugana.lt/',
+    src: '/2026/images/sponsors/partners/budrugana.webp',
+    alt: 'Budrugana',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://ccbaltics.com/lt/',
+    src: '/2026/images/sponsors/partners/ccb.webp',
+    alt: 'Comic con Baltics',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://gaidelisklasika.lt/',
+    src: '/2026/images/sponsors/partners/gaidelis.webp',
+    alt: 'Gaidelis',
+    tier: SponsorTier.partner,
+  },
 ];
 
 function SponsorSection({ tier }: { tier: SponsorTierType }) {
