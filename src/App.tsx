@@ -4,6 +4,7 @@ import Sky from './components/Sky';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import RoomDetail from './pages/RoomDetail';
 import LanguageSwitcher from './components/LanguageSwitcher';
+import MidiLogo from './components/MidiLogo';
 import { useTranslation } from 'react-i18next';
 
 import ContributorsPC from './assets/rooms/contributorsRoomPC.webp';
@@ -45,6 +46,7 @@ function AppContent() {
 
   return (
     <div className="min-h-screen bg-sky-900 flex flex-col text-white">
+      {isMainPage && <MidiLogo />}
       {isMainPage && <LanguageSwitcher />}
       <Sky />
 
