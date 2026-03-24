@@ -148,6 +148,24 @@ const sponsors: Sponsor[] = [
     alt: 'Gaidelis',
     tier: SponsorTier.partner,
   },
+  {
+    href: 'https://www.audimas.lt/',
+    src: '/2026/images/sponsors/partners/audimas.webp',
+    alt: 'Audimas',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://eye2eye.lt/',
+    src: '/2026/images/sponsors/partners/eye2eye.webp',
+    alt: 'Eye2Eye',
+    tier: SponsorTier.partner,
+  },
+  {
+    href: 'https://www.pepsi.com/',
+    src: '/2026/images/sponsors/partners/pepsi.webp',
+    alt: 'Pepsi',
+    tier: SponsorTier.partner,
+  },
 ];
 
 function SponsorSection({ tier }: { tier: SponsorTierType }) {
