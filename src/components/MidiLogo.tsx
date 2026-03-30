@@ -6,7 +6,7 @@ export default function MidiLogo() {
       href="https://midi.lt/pagrindinis/"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed top-4 left-4 z-50 block transition-transform duration-200 ease-in-out hover:scale-110 active:scale-110"
+      className="fixed top-4 left-2 z-50 block transition-transform duration-200 ease-in-out hover:scale-110 active:scale-110"
       aria-label="MIDI"
     >
       <img
