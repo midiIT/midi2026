@@ -10,6 +10,7 @@ const SponsorTier = {
   silver: 'silver',
   bronze: 'bronze',
   lanSponsor: 'lanSponsors',
+  lanInformationalPartner: 'lanInformationalPartner',
   partner: 'partners',
 } as const;
 
@@ -79,6 +80,14 @@ const sponsors: Sponsor[] = [
     src: '/2026/images/sponsors/lanSponsors/eset.webp',
     alt: 'ESET',
     tier: SponsorTier.lanSponsor,
+  },
+
+  // LAN Informational Partner
+  {
+    href: 'https://esportstop.lt/',
+    src: '/2026/images/sponsors/lanInformationalPartner/esportstop.webp',
+    alt: 'Esportstop',
+    tier: SponsorTier.lanInformationalPartner,
   },
 
   // Partners
@@ -180,6 +189,7 @@ function SponsorSection({ tier }: { tier: SponsorTierType }) {
     [SponsorTier.silver]: t('contributors.silver'),
     [SponsorTier.bronze]: t('contributors.bronze'),
     [SponsorTier.lanSponsor]: t('contributors.lanSponsors'),
+    [SponsorTier.lanInformationalPartner]: t('contributors.lanInformationalPartner'),
     [SponsorTier.partner]: t('contributors.partners'),
   };
 
@@ -189,6 +199,7 @@ function SponsorSection({ tier }: { tier: SponsorTierType }) {
     [SponsorTier.silver]: 'text-silver border-silver',
     [SponsorTier.bronze]: 'text-bronze border-bronze',
     [SponsorTier.lanSponsor]: 'text-lanSponsor border-lanSponsor',
+    [SponsorTier.lanInformationalPartner]: 'text-lanInformationalPartner border-lanInformationalPartner',
     [SponsorTier.partner]: 'text-partner border-partner',
   };
 
