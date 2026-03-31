@@ -9,6 +9,7 @@ export default {
         silver: '#9D9D9D',
         bronze: '#CD7F32',
         lanSponsor: '#6B3FA0',
+        lanInformationalPartner: '#FF5722',
         standard: '#3B82F6',
         partner: '#333333',
       },
