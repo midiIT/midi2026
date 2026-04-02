@@ -81,6 +81,18 @@ const sponsors: Sponsor[] = [
     alt: 'ESET',
     tier: SponsorTier.lanSponsor,
   },
+  {
+    href: 'https://123renginys.lt/',
+    src: '/2026/images/sponsors/lanSponsors/123Renginys.webp',
+    alt: '123 Renginys',
+    tier: SponsorTier.lanSponsor,
+  },
+  {
+    href: 'https://pramoguiranga.lt/',
+    src: '/2026/images/sponsors/lanSponsors/pramoguIranga.webp',
+    alt: 'Pramoguiranga',
+    tier: SponsorTier.lanSponsor,
+  },
 
   // LAN Informational Partner
   {
