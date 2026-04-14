@@ -39,6 +39,12 @@ const sponsors: Sponsor[] = [
     alt: 'Asseco',
     tier: SponsorTier.gold,
   },
+  {
+    href: 'https://nordsecurity.com/',
+    src: '/2026/images/sponsors/gold/nordSecurity.webp',
+    alt: 'Nord Security',
+    tier: SponsorTier.gold,
+  },
 
   // Silver sponsors
   {
@@ -65,6 +71,12 @@ const sponsors: Sponsor[] = [
     href: 'https://www.westernunion.com/lt/lt/home.html',
     src: '/2026/images/sponsors/bronze/westernUnion.webp',
     alt: 'Western Union',
+    tier: SponsorTier.bronze,
+  },
+  {
+    href: 'https://kpmg.com/lt/lt.html',
+    src: '/2026/images/sponsors/bronze/kpmg.webp',
+    alt: 'KPMG',
     tier: SponsorTier.bronze,
   },
 
